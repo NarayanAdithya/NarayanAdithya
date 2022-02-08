@@ -1,5 +1,10 @@
-<h1 align="center">Hi 👋, I'm Adithya Narayan</h1>
-<h3 align="center">A stressed Developer</h3>
+<div align='center'>
+
+ [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Hola%2C+Me+Llamo+Adithya;Flask+Developer;DevOps+%7C+Backend+%7C+Open+Inno;Kivy+%7C+Selenium+%7C+Tensorflow;Open+for+Collabs)](https://git.io/typing-svg)
+  
+</div>
+
+
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=narayanadithya&label=Profile%20views&color=0e75b6&style=flat" alt="narayanadithya" /> </p>
 
