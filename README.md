@@ -8,20 +8,20 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=narayanadithya&label=Profile%20views&color=0e75b6&style=flat" alt="narayanadithya" /> </p>
 
-- 🔭 I’m currently working on **a distributed computing system (😅 can't say much).**
+🔭 I’m currently working on **a distributed computing system (😅 can't say much).**
 
-- 🌱 I’m currently learning **a little bit of DevOPs.**
+🌱 I’m currently learning **a little bit of DevOPs.**
 
-- 👯 I’m looking to collaborate on **projects, hackathons etc.**
+👯 I’m looking to collaborate on **projects, hackathons etc.**
 
-- 🤝 I’m looking for help with **RASA chatbots (deployment specifically)**
+🤝 I’m looking for help with **RASA chatbots (deployment specifically)**
 
-- 💬 Ask me about **Flask, Python in general, Docker etc.**
+💬 Ask me about **Flask, Python in general, Docker etc.**
 
-- 📫 Mail me on **narayanadithya1234@gmail.com**
+📫 Mail me on **narayanadithya1234@gmail.com**
 
-- ⚡ Fun fact **I am the most stressed person you will meet**
+⚡ Fun fact **I am the most stressed person you will meet**
 
-- 😃 Check out my portfolio website [here](https://adithyanarayan1234.herokuapp.com/) and this is the older version [here](https://narayanadithya.herokuapp.com/) 
+😃 Check out my portfolio website [here](https://adithyanarayan1234.herokuapp.com/) and this is the older version [here](https://narayanadithya.herokuapp.com/) 
 
 
