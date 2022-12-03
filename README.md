@@ -8,13 +8,13 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=narayanadithya&label=Profile%20views&color=0e75b6&style=flat" alt="narayanadithya" /> </p>
 
-🔭 I’m currently working on ** microservice architecture, docker, jenkins and other devops stuff **
+🔭 I’m currently working on **microservice architecture, docker, jenkins and other devops stuff**
 
-🌱 I’m currently learning ** DevOps **
+🌱 I’m currently learning **DevOps**
 
 👯 I’m looking to collaborate on **projects, hackathons etc.**
 
-🤝 I’m looking for help with **RASA chatbots (deployment specifically)**
+🤝 I’m looking for help with **DSA**
 
 💬 Ask me about **Flask, Python , Docker etc.**
 
