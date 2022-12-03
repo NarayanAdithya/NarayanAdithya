@@ -8,15 +8,15 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=narayanadithya&label=Profile%20views&color=0e75b6&style=flat" alt="narayanadithya" /> </p>
 
-🔭 I’m currently working on **a distributed computing system (😅 can't say much).**
+🔭 I’m currently working on ** microservice architecture, docker, jenkins and other devops stuff **
 
-🌱 I’m currently learning **a little bit of DevOPs.**
+🌱 I’m currently learning ** DevOps **
 
 👯 I’m looking to collaborate on **projects, hackathons etc.**
 
 🤝 I’m looking for help with **RASA chatbots (deployment specifically)**
 
-💬 Ask me about **Flask, Python in general, Docker etc.**
+💬 Ask me about **Flask, Python , Docker etc.**
 
 📫 Mail me on **narayanadithya1234@gmail.com**
 
