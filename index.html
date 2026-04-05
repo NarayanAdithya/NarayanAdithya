@@ -203,6 +203,35 @@
             pointer-events: none;
         }
 
+        /* Timeline */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #7c3aed 8%, #7c3aed 92%, transparent);
+            transform: translateX(-50%);
+        }
+        @media (max-width: 767px) {
+            .timeline-line { left: 20px; }
+        }
+        .timeline-dot {
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: #7c3aed;
+            border: 3px solid #c084fc;
+            box-shadow: 0 0 12px rgba(139,92,246,0.6);
+            flex-shrink: 0;
+        }
+        .timeline-connector {
+            position: absolute;
+            top: 50%;
+            width: 40px; height: 2px;
+            background: linear-gradient(90deg, #7c3aed, rgba(139,92,246,0.3));
+        }
+        .timeline-item-left .timeline-connector { right: -40px; }
+        .timeline-item-right .timeline-connector { left: -40px; background: linear-gradient(270deg, #7c3aed, rgba(139,92,246,0.3)); }
+
         /* Tag chip */
         .tag-chip {
             display: inline-flex;
@@ -247,7 +276,9 @@
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#home" class="nav-link text-sm text-zinc-300 hover:text-white transition-colors">Home</a>
                     <a href="#stack" class="nav-link text-sm text-zinc-300 hover:text-white transition-colors">Stack</a>
+                    <a href="#journey" class="nav-link text-sm text-zinc-300 hover:text-white transition-colors">Journey</a>
                     <a href="#projects" class="nav-link text-sm text-zinc-300 hover:text-white transition-colors">Projects</a>
+                    <a href="#demos" class="nav-link text-sm text-zinc-300 hover:text-white transition-colors">Demos</a>
                     <a href="#contact" class="nav-link text-sm text-zinc-300 hover:text-white transition-colors">Contact</a>
                     <a href="app/static/files/adithya.pdf" download class="btn-primary text-sm font-semibold text-white px-5 py-2 rounded-full">
                         Resume ↓
@@ -269,7 +300,9 @@
                 <div class="flex flex-col gap-1 py-4 border-t border-white/5">
                     <a href="#home" class="mobile-link px-3 py-2 rounded-lg text-zinc-300 hover:bg-purple-900/30 hover:text-white transition-colors text-sm">Home</a>
                     <a href="#stack" class="mobile-link px-3 py-2 rounded-lg text-zinc-300 hover:bg-purple-900/30 hover:text-white transition-colors text-sm">Stack</a>
+                    <a href="#journey" class="mobile-link px-3 py-2 rounded-lg text-zinc-300 hover:bg-purple-900/30 hover:text-white transition-colors text-sm">Journey</a>
                     <a href="#projects" class="mobile-link px-3 py-2 rounded-lg text-zinc-300 hover:bg-purple-900/30 hover:text-white transition-colors text-sm">Projects</a>
+                    <a href="#demos" class="mobile-link px-3 py-2 rounded-lg text-zinc-300 hover:bg-purple-900/30 hover:text-white transition-colors text-sm">Demos</a>
                     <a href="#contact" class="mobile-link px-3 py-2 rounded-lg text-zinc-300 hover:bg-purple-900/30 hover:text-white transition-colors text-sm">Contact</a>
                     <a href="app/static/files/adithya.pdf" download class="mt-2 btn-primary text-center text-sm font-semibold text-white px-5 py-2 rounded-full">Resume ↓</a>
                 </div>
@@ -295,18 +328,18 @@
                     </h1>
 
                     <div class="space-y-2">
-                        <p class="text-zinc-300 text-lg font-medium">Developer · DevOps · ML Enthusiast</p>
+                        <p class="text-zinc-300 text-lg font-medium">Software Engineer · Security Officer · AI Explorer</p>
                         <div class="flex flex-wrap gap-x-6 gap-y-1 text-sm text-zinc-500 font-mono">
-                            <span><span class="text-purple-400">D</span>eterminant</span>
-                            <span><span class="text-purple-400">S</span>tressed</span>
-                            <span><span class="text-purple-400">M</span>eticulous</span>
-                            <span><span class="text-purple-400">W</span>illing</span>
+                            <span><span class="text-purple-400">O</span>wnership</span>
+                            <span><span class="text-purple-400">A</span>daptability</span>
+                            <span><span class="text-purple-400">B</span>ias for Action</span>
+                            <span><span class="text-purple-400">D</span>epth</span>
                         </div>
                     </div>
 
                     <p class="text-zinc-400 text-base leading-relaxed max-w-lg">
-                        I build things for the web, automate what can be automated, and ship products that scale.
-                        From Flask backends to CI/CD pipelines — I love the full picture.
+                        3+ years building, breaking, and securing mission-critical FX trading systems at ION Trading.
+                        From automation infrastructure to security leadership to AI-driven POCs — I go deep, own outcomes, and ship things that matter.
                     </p>
 
                     <!-- Social icons -->
@@ -377,115 +410,345 @@
 
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
 
+                <!-- Python -->
                 <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal">
                     <img src="app/static/img/tech_stack/python.png" class="w-12 h-12 object-contain" alt="Python">
                     <div class="text-center">
                         <p class="font-semibold text-white text-sm">Python</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Primary language for dev &amp; DSA</p>
+                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Primary language — automation, tooling &amp; AI work</p>
                     </div>
                 </div>
 
+                <!-- Bash -->
                 <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-1">
-                    <img src="app/static/img/tech_stack/cpp.png" class="w-12 h-12 object-contain" alt="C/C++">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-zinc-800">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M6 8l4 4-4 4M12 16h6"/></svg>
+                    </div>
                     <div class="text-center">
-                        <p class="font-semibold text-white text-sm">C / C++</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">OOP, DSA &amp; competitive coding</p>
+                        <p class="font-semibold text-white text-sm">Bash / Shell</p>
+                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Scripting, automation &amp; DevOps pipelines</p>
                     </div>
                 </div>
 
+                <!-- JavaScript -->
                 <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-2">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-zinc-800">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="#a78bfa"><path d="M3 3h18v18H3V3zm16.525 13.707c-.131-.821-.666-1.511-2.252-2.155-.552-.259-1.165-.438-1.349-.854-.068-.248-.078-.382-.034-.529.113-.484.687-.629 1.137-.495.293.09.563.315.732.676.775-.507.775-.507 1.316-.844-.203-.314-.304-.451-.439-.586-.473-.528-1.103-.798-2.126-.775l-.528.067c-.507.124-.991.395-1.283.754-.855.968-.608 2.655.427 3.354 1.023.765 2.521.933 2.712 1.653.18.878-.652 1.159-1.475 1.058-.607-.136-.945-.439-1.316-1.002l-1.372.788c.157.359.337.517.607.832 1.305 1.316 4.568 1.249 5.153-.754.021-.067.18-.528.132-1.209l.003.036zm-7.847-6.042H9.734v5.666c0 1.201.007 2.309-.13 2.634-.22.564-.836.474-1.107.378a1.5 1.5 0 01-.743-.927l-1.35.833c.259.608.639 1.095 1.154 1.384.678.378 1.589.526 2.579.3.724-.174 1.35-.634 1.678-1.256.45-.837.428-1.927.428-3.089V10.665z"/></svg>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-semibold text-white text-sm">JavaScript</p>
+                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Frontend scripting &amp; tooling</p>
+                    </div>
+                </div>
+
+                <!-- SQL -->
+                <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-3">
+                    <img src="app/static/img/tech_stack/database.png" class="w-12 h-12 object-contain" alt="SQL">
+                    <div class="text-center">
+                        <p class="font-semibold text-white text-sm">SQL</p>
+                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Relational databases &amp; query optimisation</p>
+                    </div>
+                </div>
+
+                <!-- Flask -->
+                <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-4">
                     <img src="app/static/img/tech_stack/flask.png" class="w-12 h-12 object-contain" alt="Flask">
                     <div class="text-center">
                         <p class="font-semibold text-white text-sm">Flask</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">2+ years, backend for most projects</p>
+                        <p class="text-zinc-500 text-xs mt-1 leading-snug">REST APIs, microservices &amp; backends</p>
                     </div>
                 </div>
 
-                <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-3">
-                    <img src="app/static/img/tech_stack/tailwind.png" class="w-12 h-12 object-contain" alt="Tailwind">
-                    <div class="text-center">
-                        <p class="font-semibold text-white text-sm">Tailwind CSS</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">This site is built with it</p>
-                    </div>
-                </div>
-
-                <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-4">
-                    <img src="app/static/img/tech_stack/docker.png" class="w-12 h-12 object-contain" alt="Docker">
-                    <div class="text-center">
-                        <p class="font-semibold text-white text-sm">Docker</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Containerise all the things</p>
-                    </div>
-                </div>
-
+                <!-- Jenkins -->
                 <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal">
                     <img src="app/static/img/tech_stack/jenkins.png" class="w-12 h-12 object-contain" alt="Jenkins">
                     <div class="text-center">
                         <p class="font-semibold text-white text-sm">Jenkins CI</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">CI pipelines for Node/Python/Java</p>
+                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Built &amp; owned end-to-end CI/CD pipelines at ION</p>
                     </div>
                 </div>
 
+                <!-- Docker -->
                 <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-1">
-                    <img src="app/static/img/tech_stack/ansible.png" class="w-12 h-12 object-contain" alt="Ansible">
+                    <img src="app/static/img/tech_stack/docker.png" class="w-12 h-12 object-contain" alt="Docker">
                     <div class="text-center">
-                        <p class="font-semibold text-white text-sm">Ansible</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Infrastructure automation</p>
+                        <p class="font-semibold text-white text-sm">Docker</p>
+                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Containerised services &amp; environments</p>
                     </div>
                 </div>
 
+                <!-- Selenium -->
                 <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-2">
-                    <img src="app/static/img/tech_stack/tensorflow.png" class="w-12 h-12 object-contain" alt="TensorFlow">
-                    <div class="text-center">
-                        <p class="font-semibold text-white text-sm">TensorFlow</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">ML projects &amp; experimentation</p>
-                    </div>
-                </div>
-
-                <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-3">
                     <img src="app/static/img/tech_stack/selenium.png" class="w-12 h-12 object-contain" alt="Selenium">
                     <div class="text-center">
                         <p class="font-semibold text-white text-sm">Selenium</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Automation &amp; web scraping</p>
+                        <p class="text-zinc-500 text-xs mt-1 leading-snug">UI test automation &amp; regression suites</p>
                     </div>
                 </div>
 
-                <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-4">
-                    <img src="app/static/img/tech_stack/database.png" class="w-12 h-12 object-contain" alt="Databases">
-                    <div class="text-center">
-                        <p class="font-semibold text-white text-sm">Databases</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">SQL &amp; NoSQL experience</p>
-                    </div>
-                </div>
-
-                <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal">
-                    <img src="app/static/img/tech_stack/tableau.png" class="w-12 h-12 object-contain" alt="Tableau">
-                    <div class="text-center">
-                        <p class="font-semibold text-white text-sm">Tableau</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Data visualisation &amp; EDA</p>
-                    </div>
-                </div>
-
-                <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-1">
-                    <img src="app/static/img/tech_stack/rasa.png" class="w-12 h-12 object-contain" alt="RASA">
-                    <div class="text-center">
-                        <p class="font-semibold text-white text-sm">RASA</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Chatbot development framework</p>
-                    </div>
-                </div>
-
-                <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-2">
-                    <img src="app/static/img/tech_stack/kivy.png" class="w-12 h-12 object-contain" alt="Kivy">
-                    <div class="text-center">
-                        <p class="font-semibold text-white text-sm">Kivy</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Android apps via Python</p>
-                    </div>
-                </div>
-
+                <!-- Git -->
                 <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-3">
-                    <img src="app/static/img/tech_stack/deployment.png" class="w-12 h-12 object-contain" alt="Deployment">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-zinc-800">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="#a78bfa"><path d="M23.546 10.93L13.067.452a1.55 1.55 0 00-2.188 0L8.708 2.627l2.76 2.76a1.838 1.838 0 012.327 2.341l2.658 2.66a1.838 1.838 0 11-1.1 1.73c-.48 0-.92-.19-1.24-.5l-2.48-2.48v6.523a1.835 1.835 0 11-1.505-.018V9.01a1.84 1.84 0 01-.996-2.44L6.373 3.8.452 9.718a1.55 1.55 0 000 2.187l10.478 10.478a1.55 1.55 0 002.188 0l10.428-10.428a1.55 1.55 0 000-2.024z"/></svg>
+                    </div>
                     <div class="text-center">
-                        <p class="font-semibold text-white text-sm">Deployment</p>
-                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Heroku, AWS, Azure, PythonAnywhere</p>
+                        <p class="font-semibold text-white text-sm">Git</p>
+                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Version control &amp; collaborative workflows</p>
+                    </div>
+                </div>
+
+                <!-- Azure / Cloud -->
+                <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-4">
+                    <img src="app/static/img/tech_stack/deployment.png" class="w-12 h-12 object-contain" alt="Azure">
+                    <div class="text-center">
+                        <p class="font-semibold text-white text-sm">Azure &amp; Cloud</p>
+                        <p class="text-zinc-500 text-xs mt-1 leading-snug">Azure primary — cloud deployment &amp; services</p>
+                    </div>
+                </div>
+
+                <!-- InfoSec -->
+                <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-zinc-800">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-semibold text-white text-sm">InfoSec</p>
+                        <p class="text-zinc-500 text-xs mt-1 leading-snug">MFA, incident response, BCP/BIA, TISO</p>
+                    </div>
+                </div>
+
+                <!-- TensorFlow / AI -->
+                <div class="glass tech-card rounded-2xl p-5 flex flex-col items-center gap-3 reveal reveal-delay-1">
+                    <img src="app/static/img/tech_stack/tensorflow.png" class="w-12 h-12 object-contain" alt="TensorFlow">
+                    <div class="text-center">
+                        <p class="font-semibold text-white text-sm">TensorFlow</p>
+                        <p class="text-zinc-500 text-xs mt-1 leading-snug">AI/ML POCs &amp; model experimentation</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== JOURNEY ===================== -->
+    <section id="journey" class="py-28 relative">
+        <div class="orb w-72 h-72 bg-violet-900/20 top-0 left-1/4"></div>
+        <div class="max-w-5xl mx-auto px-6 lg:px-10">
+            <div class="text-center mb-20 reveal">
+                <div class="section-label">Where I've Been</div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mt-3">My Journey</h2>
+                <p class="text-zinc-500 text-sm mt-3">ION Trading India · Jan 2023 – Present · FX Front Office</p>
+            </div>
+
+            <!-- Timeline wrapper -->
+            <div class="relative">
+                <div class="timeline-line hidden md:block"></div>
+
+                <!-- ── Phase 1: Automation Infrastructure ── -->
+                <div class="md:grid md:grid-cols-2 md:gap-12 mb-14 reveal">
+                    <div class="relative mb-8 md:mb-0">
+                        <div class="glass rounded-2xl p-6 space-y-3 timeline-item-left relative">
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[54px] hidden md:flex items-center">
+                                <div class="timeline-connector"></div>
+                                <div class="timeline-dot"></div>
+                            </div>
+                            <div class="flex items-center gap-3 md:hidden mb-2">
+                                <div class="timeline-dot"></div>
+                                <span class="text-xs text-purple-400 font-mono font-semibold">2023</span>
+                            </div>
+                            <p class="text-xs text-purple-400 font-mono font-semibold uppercase tracking-wider">Automation Engineering</p>
+                            <h3 class="text-white font-bold text-base">Test Automation Infrastructure — Built from Zero</h3>
+                            <p class="text-zinc-500 text-xs">ION Trading · FX Division</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">
+                                Architected and delivered the complete test automation framework for the FX front-office product from the ground up — establishing continuous regression, release gating, and a foundation for quality across the product lifecycle.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-1">
+                                <span class="tag-chip">Python</span>
+                                <span class="tag-chip">Jenkins</span>
+                                <span class="tag-chip">Test Frameworks</span>
+                                <span class="tag-chip">CI/CD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex items-center pl-16">
+                        <div class="space-y-1">
+                            <p class="text-purple-300 font-mono font-bold text-lg">2023</p>
+                            <p class="text-zinc-500 text-sm">Joined ION · First mandate</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Phase 2: Performance Benchmarking ── -->
+                <div class="md:grid md:grid-cols-2 md:gap-12 mb-14 reveal">
+                    <div class="hidden md:flex items-center justify-end pr-16">
+                        <div class="space-y-1 text-right">
+                            <p class="text-purple-300 font-mono font-bold text-lg">2024</p>
+                            <p class="text-zinc-500 text-sm">Scale &amp; stress-testing</p>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="glass rounded-2xl p-6 space-y-3 timeline-item-right relative">
+                            <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[54px] hidden md:flex items-center flex-row-reverse">
+                                <div class="timeline-connector"></div>
+                                <div class="timeline-dot"></div>
+                            </div>
+                            <div class="flex items-center gap-3 md:hidden mb-2">
+                                <div class="timeline-dot"></div>
+                                <span class="text-xs text-purple-400 font-mono font-semibold">2024</span>
+                            </div>
+                            <p class="text-xs text-purple-400 font-mono font-semibold uppercase tracking-wider">Performance Engineering</p>
+                            <h3 class="text-white font-bold text-base">Performance Benchmarking Environment</h3>
+                            <p class="text-zinc-500 text-xs">Load, stress &amp; capacity testing</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">
+                                Led the strategy, design, and full implementation of the performance testing infrastructure — enabling rigorous load and stress benchmarking across product releases to quantify capacity limits and catch regressions before they reached clients.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-1">
+                                <span class="tag-chip">Performance Testing</span>
+                                <span class="tag-chip">Load Testing</span>
+                                <span class="tag-chip">Benchmarking</span>
+                                <span class="tag-chip">Infra Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Phase 3: Contractual Feature Dev ── -->
+                <div class="md:grid md:grid-cols-2 md:gap-12 mb-14 reveal">
+                    <div class="relative mb-8 md:mb-0">
+                        <div class="glass rounded-2xl p-6 space-y-3 timeline-item-left relative">
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[54px] hidden md:flex items-center">
+                                <div class="timeline-connector"></div>
+                                <div class="timeline-dot"></div>
+                            </div>
+                            <div class="flex items-center gap-3 md:hidden mb-2">
+                                <div class="timeline-dot"></div>
+                                <span class="text-xs text-purple-400 font-mono font-semibold">2024</span>
+                            </div>
+                            <p class="text-xs text-purple-400 font-mono font-semibold uppercase tracking-wider">Feature Development</p>
+                            <h3 class="text-white font-bold text-base">Contractual Client Feature Delivery</h3>
+                            <p class="text-zinc-500 text-xs">End-to-end ownership · Client environments</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">
+                                Took full ownership of contractual feature delivery — from requirements through development, QA, and client deployment. Provided hands-on technical support directly within client environments, ensuring stable and smooth rollouts.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-1">
+                                <span class="tag-chip">Feature Engineering</span>
+                                <span class="tag-chip">Client Engagement</span>
+                                <span class="tag-chip">Production Delivery</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex items-center pl-16">
+                        <div class="space-y-1">
+                            <p class="text-purple-300 font-mono font-bold text-lg">2024</p>
+                            <p class="text-zinc-500 text-sm">Direct client ownership</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Phase 4: MFA ── -->
+                <div class="md:grid md:grid-cols-2 md:gap-12 mb-14 reveal">
+                    <div class="hidden md:flex items-center justify-end pr-16">
+                        <div class="space-y-1 text-right">
+                            <p class="text-purple-300 font-mono font-bold text-lg">2024</p>
+                            <p class="text-zinc-500 text-sm">Zero-to-production solo</p>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="glass rounded-2xl p-6 space-y-3 timeline-item-right relative">
+                            <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[54px] hidden md:flex items-center flex-row-reverse">
+                                <div class="timeline-connector"></div>
+                                <div class="timeline-dot"></div>
+                            </div>
+                            <div class="flex items-center gap-3 md:hidden mb-2">
+                                <div class="timeline-dot"></div>
+                                <span class="text-xs text-purple-400 font-mono font-semibold">2024</span>
+                            </div>
+                            <p class="text-xs text-purple-400 font-mono font-semibold uppercase tracking-wider">Security Feature</p>
+                            <h3 class="text-white font-bold text-base">MFA — Architecture, Build &amp; Global Rollout</h3>
+                            <p class="text-zinc-500 text-xs">Single-handedly designed and shipped</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">
+                                Sole engineer responsible for the complete MFA implementation — from threat modelling and architecture through development, testing, and production deployment across all client environments worldwide.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-1">
+                                <span class="tag-chip">MFA</span>
+                                <span class="tag-chip">Security Architecture</span>
+                                <span class="tag-chip">Full Lifecycle</span>
+                                <span class="tag-chip">Multi-client Rollout</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Phase 5: TISO + BCP + SME ── -->
+                <div class="md:grid md:grid-cols-2 md:gap-12 mb-14 reveal">
+                    <div class="relative mb-8 md:mb-0">
+                        <div class="glass rounded-2xl p-6 space-y-3 timeline-item-left relative">
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[54px] hidden md:flex items-center">
+                                <div class="timeline-connector"></div>
+                                <div class="timeline-dot"></div>
+                            </div>
+                            <div class="flex items-center gap-3 md:hidden mb-2">
+                                <div class="timeline-dot"></div>
+                                <span class="text-xs text-purple-400 font-mono font-semibold">2025</span>
+                            </div>
+                            <p class="text-xs text-purple-400 font-mono font-semibold uppercase tracking-wider">Security &amp; Governance Leadership</p>
+                            <h3 class="text-white font-bold text-base">TISO · BCP/BIA Lead · MFA Subject Matter Expert</h3>
+                            <p class="text-zinc-500 text-xs">Appointed post-incident · Division security team</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">
+                                Appointed Team Information Security Officer following a critical incident. Led BCP and BIA governance across multiple products, drove org-level security posture initiatives, and served as the recognised MFA Subject Matter Expert while continuing to lead contractual feature delivery.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-1">
+                                <span class="tag-chip">TISO</span>
+                                <span class="tag-chip">BCP / BIA</span>
+                                <span class="tag-chip">MFA SME</span>
+                                <span class="tag-chip">Security Governance</span>
+                                <span class="tag-chip">Feature Lead</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex items-center pl-16">
+                        <div class="space-y-1">
+                            <p class="text-purple-300 font-mono font-bold text-lg">2025</p>
+                            <p class="text-zinc-500 text-sm">Security leadership + expertise</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Phase 6: Strategic / Current ── -->
+                <div class="md:grid md:grid-cols-2 md:gap-12 reveal">
+                    <div class="hidden md:flex items-center justify-end pr-16">
+                        <div class="space-y-1 text-right">
+                            <p class="text-purple-300 font-mono font-bold text-lg">2026</p>
+                            <p class="text-zinc-500 text-sm">Current chapter</p>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="glass rounded-2xl p-6 space-y-3 timeline-item-right relative" style="border-color: rgba(192,132,252,0.35);">
+                            <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[54px] hidden md:flex items-center flex-row-reverse">
+                                <div class="timeline-connector"></div>
+                                <div class="timeline-dot" style="border-color:#f0abfc; box-shadow: 0 0 18px rgba(240,171,252,0.75);"></div>
+                            </div>
+                            <div class="flex items-center gap-3 md:hidden mb-2">
+                                <div class="timeline-dot" style="border-color:#f0abfc; box-shadow: 0 0 14px rgba(240,171,252,0.7);"></div>
+                                <span class="text-xs text-purple-400 font-mono font-semibold">Now</span>
+                            </div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <p class="text-xs text-purple-400 font-mono font-semibold uppercase tracking-wider">Strategic Engineering &amp; Security</p>
+                                <span class="text-xs bg-green-500/15 text-green-400 border border-green-500/30 rounded-full px-2 py-0.5 font-semibold">Current</span>
+                            </div>
+                            <h3 class="text-white font-bold text-base">Solutions Architect · Division Security Operative · AI Pioneer</h3>
+                            <p class="text-zinc-500 text-xs">Cross-divisional · Strategic FX · AI/ML POCs</p>
+                            <p class="text-zinc-400 text-sm leading-relaxed">
+                                Operating at the intersection of strategy and engineering: architecting and delivering solutions for high-stakes client environments, contributing to division-level security operations, and pioneering cross-divisional AI/ML proof-of-concepts — while stabilising a critical production environment for a flagship client.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-1">
+                                <span class="tag-chip">Solutions Architecture</span>
+                                <span class="tag-chip">Division Security</span>
+                                <span class="tag-chip">AI / ML POCs</span>
+                                <span class="tag-chip">Client Stabilization</span>
+                                <span class="tag-chip">Cross-divisional</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -637,6 +900,116 @@
                         </div>
                     </div>
                 </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== DEMOS ===================== -->
+    <section id="demos" class="py-28 relative">
+        <div class="orb w-80 h-80 bg-purple-900/20 top-10 right-10"></div>
+        <div class="max-w-6xl mx-auto px-6 lg:px-10">
+            <div class="text-center mb-6 reveal">
+                <div class="section-label">Blasts from the Past</div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mt-3">Demos &amp; Side Quests</h2>
+            </div>
+            <p class="text-center text-zinc-500 text-sm leading-relaxed max-w-xl mx-auto mb-14 reveal">
+                A collection of pitches, walkthroughs, and experiments from college days and random rabbit holes.
+                Not always polished — always fun. Some of these actually felt meaningful.
+            </p>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <a href="https://youtu.be/0V5YnwqumAI" target="_blank" rel="noopener"
+                    class="glass rounded-2xl p-5 flex flex-col gap-3 hover:border-purple-500/40 transition-all group reveal">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">🤟</span>
+                        <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">Azure · Computer Vision</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold text-sm group-hover:text-purple-300 transition-colors">Azure Sign Detection Demo</h3>
+                        <p class="text-zinc-500 text-xs mt-1 leading-relaxed">Built a sign language-to-text translator on Azure Custom Vision. One of those projects that actually felt meaningful.</p>
+                    </div>
+                    <span class="text-purple-500 text-xs group-hover:text-purple-300 transition-colors mt-auto">Watch ↗</span>
+                </a>
+
+                <a href="https://youtu.be/ep91za2LUDg" target="_blank" rel="noopener"
+                    class="glass rounded-2xl p-5 flex flex-col gap-3 hover:border-purple-500/40 transition-all group reveal reveal-delay-1">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">📊</span>
+                        <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">Data · Tableau</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold text-sm group-hover:text-purple-300 transition-colors">Tableau Data Analysis</h3>
+                        <p class="text-zinc-500 text-xs mt-1 leading-relaxed">A data analysis walkthrough using Tableau. Graphs, charts, and a lot of clicking around.</p>
+                    </div>
+                    <span class="text-purple-500 text-xs group-hover:text-purple-300 transition-colors mt-auto">Watch ↗</span>
+                </a>
+
+                <a href="https://youtu.be/WCBLotgskZg" target="_blank" rel="noopener"
+                    class="glass rounded-2xl p-5 flex flex-col gap-3 hover:border-purple-500/40 transition-all group reveal reveal-delay-2">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">🏠</span>
+                        <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">ML · MindsDB</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold text-sm group-hover:text-purple-300 transition-colors">House Price Forecasting</h3>
+                        <p class="text-zinc-500 text-xs mt-1 leading-relaxed">Predicting house prices with MindsDB. Spoiler: still can't afford one.</p>
+                    </div>
+                    <span class="text-purple-500 text-xs group-hover:text-purple-300 transition-colors mt-auto">Watch ↗</span>
+                </a>
+
+                <a href="https://youtu.be/9XM8skrYS6Q" target="_blank" rel="noopener"
+                    class="glass rounded-2xl p-5 flex flex-col gap-3 hover:border-purple-500/40 transition-all group reveal">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">🍯</span>
+                        <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">ML · MindsDB</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold text-sm group-hover:text-purple-300 transition-colors">Honey Production Forecasting</h3>
+                        <p class="text-zinc-500 text-xs mt-1 leading-relaxed">Forecasting honey production because… why not? MindsDB makes it too easy not to try.</p>
+                    </div>
+                    <span class="text-purple-500 text-xs group-hover:text-purple-300 transition-colors mt-auto">Watch ↗</span>
+                </a>
+
+                <a href="https://youtu.be/O5PUvh863sY" target="_blank" rel="noopener"
+                    class="glass rounded-2xl p-5 flex flex-col gap-3 hover:border-purple-500/40 transition-all group reveal reveal-delay-1">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">🔍</span>
+                        <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">Hackathon · Dyte</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold text-sm group-hover:text-purple-300 transition-colors">DyteScan — Hiring Challenge</h3>
+                        <p class="text-zinc-500 text-xs mt-1 leading-relaxed">Built a tool for Dyte's hiring round. Got rejected, kept the demo. No regrets.</p>
+                    </div>
+                    <span class="text-purple-500 text-xs group-hover:text-purple-300 transition-colors mt-auto">Watch ↗</span>
+                </a>
+
+                <a href="https://youtu.be/AHikokQY0N8" target="_blank" rel="noopener"
+                    class="glass rounded-2xl p-5 flex flex-col gap-3 hover:border-purple-500/40 transition-all group reveal reveal-delay-2">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">☕</span>
+                        <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">College · Pitch</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold text-sm group-hover:text-purple-300 transition-colors">Smart Mug Sales Pitch</h3>
+                        <p class="text-zinc-500 text-xs mt-1 leading-relaxed">Tried to sell a smart mug in college. The mug was smarter than the pitch, probably.</p>
+                    </div>
+                    <span class="text-purple-500 text-xs group-hover:text-purple-300 transition-colors mt-auto">Watch ↗</span>
+                </a>
+
+                <a href="https://youtu.be/QWWs9vOXq3o" target="_blank" rel="noopener"
+                    class="glass rounded-2xl p-5 flex flex-col gap-3 hover:border-purple-500/40 transition-all group reveal sm:col-span-2 lg:col-span-1">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">🎓</span>
+                        <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">College · Education</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold text-sm group-hover:text-purple-300 transition-colors">Immersion Learning Activity</h3>
+                        <p class="text-zinc-500 text-xs mt-1 leading-relaxed">A college immersion learning session. Learning by doing, quite literally.</p>
+                    </div>
+                    <span class="text-purple-500 text-xs group-hover:text-purple-300 transition-colors mt-auto">Watch ↗</span>
+                </a>
 
             </div>
         </div>
