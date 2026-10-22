@@ -1,1278 +1,668 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Adithya Narayan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: single dark world. A live dot-matrix field behind the hero, condensed display type,
+   mono for figures; case studies read as problem / decision / result records. */
+:root {
+  color-scheme: dark;
+  --bg: #0A0E14;
+  --bg-2: #0E131B;
+  --surface: #121924;
+  --line: #1D2633;
+  --line-2: #2A3646;
+  --ink: #E7EBF1;
+  --muted: #8C97A8;
+  --faint: #5C6779;
+  --accent: #F2A766;
+  --accent-ink: #1A1006;
+  --accent-soft: rgba(242, 167, 102, 0.12);
+  --live: #7DD3C0;
+  --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.1875rem;
+  --step-2: 1.5rem;
+  --step-3: 2.375rem;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
 
-    <!-- Primary Meta Tags -->
-    <title>Adithya Narayan — Software Engineer · Security · AI Enablement</title>
-    <meta name="description" content="Adithya Narayan — Software Engineer, Security Officer and AI Enablement Lead with 3+ years building and securing mission-critical FX trading systems at ION Trading. Self-initiated security frameworks, incident response, and AI adoption at scale.">
-    <meta name="keywords" content="Adithya Narayan, software engineer, ION Trading, Python developer, DevOps, security, automation, Kerala, VIT Vellore, FX trading, Jenkins, Docker, Flask">
-    <meta name="author" content="Adithya Narayan">
-    <meta name="robots" content="index, follow">
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(64px + env(safe-area-inset-top, 0px)); background: var(--bg); }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--bg);
+}
+a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+::selection { background: var(--accent); color: var(--accent-ink); }
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://narayanadithya.github.io/NarayanAdithya/">
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 720px) {
+  .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); }
+}
 
-    <!-- Open Graph / Social Sharing -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://narayanadithya.github.io/NarayanAdithya/">
-    <meta property="og:title" content="Adithya Narayan | Software Engineer &amp; Security Specialist">
-    <meta property="og:description" content="3+ years building, breaking, and securing mission-critical FX trading systems at ION Trading. Automation, security, DevOps, and AI.">
-    <meta property="og:image" content="https://narayanadithya.github.io/NarayanAdithya/app/static/img/adithya.JPG">
-    <meta property="og:locale" content="en_IN">
+/* Thinking dots */
+.dots { display: inline-flex; gap: 4px; align-items: center; vertical-align: middle; }
+.dots i {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+  animation: think 1.3s var(--ease) infinite;
+}
+.dots i:nth-child(2) { animation-delay: .16s; }
+.dots i:nth-child(3) { animation-delay: .32s; }
+@keyframes think {
+  0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .35; }
+  40% { transform: translateY(-3px) scale(1); opacity: 1; }
+}
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Adithya Narayan | Software Engineer &amp; Security Specialist">
-    <meta name="twitter:description" content="3+ years building, breaking, and securing mission-critical FX trading systems at ION Trading.">
-    <meta name="twitter:image" content="https://narayanadithya.github.io/NarayanAdithya/app/static/img/adithya.JPG">
+/* Nav */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: rgba(10, 14, 20, 0.78);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 58px; }
+.wordmark {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--display); font-stretch: 72%; font-weight: 800; font-size: 1.125rem;
+  letter-spacing: 0.03em; text-transform: uppercase; color: var(--ink); text-decoration: none;
+}
+.wordmark .dots i { width: 4px; height: 4px; }
+.nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; flex-wrap: wrap; justify-content: flex-end; }
+.nav ul a {
+  position: relative; font-family: var(--mono); font-size: var(--step--1); color: var(--muted); text-decoration: none;
+}
+.nav ul a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: var(--accent);
+  transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease);
+}
+.nav ul a:hover { color: var(--ink); }
+.nav ul a:hover::after { transform: scaleX(1); }
+@media (max-width: 560px) { .nav ul { gap: 14px; } .nav li.hide-sm { display: none; } }
 
-    <!-- Geo Tags -->
-    <meta name="geo.region" content="IN-KL">
-    <meta name="geo.placename" content="Kozhikode, Kerala">
+/* Hero */
+.hero { position: relative; overflow: hidden; padding-block: 72px 64px; border-bottom: 1px solid var(--line); }
+#field {
+  position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+}
+.hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(60% 70% at 15% 40%, rgba(10,14,20,.85) 0%, rgba(10,14,20,0) 70%);
+}
+.hero .wrap { position: relative; z-index: 1; }
+.hero-grid { display: grid; gap: 44px; grid-template-columns: minmax(0, 1fr); align-items: end; }
+@media (min-width: 920px) { .hero-grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 56px; } }
 
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Adithya Narayan",
-      "url": "https://narayanadithya.github.io/NarayanAdithya/",
-      "image": "https://narayanadithya.github.io/NarayanAdithya/app/static/img/adithya.JPG",
-      "jobTitle": "Software Developer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "ION Trading India Pvt. Ltd."
-      },
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "Vellore Institute of Technology"
-      },
-      "knowsAbout": ["Python", "DevOps", "Security", "Test Automation", "Jenkins", "Docker", "Flask", "Foreign Exchange Trading Systems"],
-      "sameAs": [
-        "https://www.linkedin.com/in/adithya-narayan-3747081a3/",
-        "https://github.com/NarayanAdithya",
-        "mailto:adithyanarayan1234@gmail.com"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Kozhikode",
-        "addressRegion": "Kerala",
-        "addressCountry": "IN"
-      }
+.status {
+  display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  font-family: var(--mono); font-size: var(--step--1); color: var(--muted);
+  padding: 7px 12px; border: 1px solid var(--line-2); border-radius: 999px;
+  background: rgba(18, 25, 36, 0.7); margin: 0 0 22px;
+}
+.status strong { color: var(--ink); font-weight: 500; }
+.led { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.name {
+  font-family: var(--display); font-stretch: 66%; font-weight: 800;
+  font-size: clamp(3.5rem, 12vw, 8rem); line-height: 0.86; letter-spacing: -0.005em;
+  text-transform: uppercase; margin: 0 0 26px; text-wrap: balance;
+  background: linear-gradient(100deg, var(--ink) 0%, var(--ink) 40%, var(--accent) 50%, var(--ink) 60%, var(--ink) 100%);
+  background-size: 250% 100%; background-position: 100% 0;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: sheen 2.4s .5s var(--ease) both;
+}
+@keyframes sheen { from { background-position: 100% 0; } to { background-position: 0% 0; } }
+.role { font-family: var(--mono); font-size: var(--step--1); color: var(--accent); letter-spacing: .06em; text-transform: uppercase; margin: 0 0 14px; }
+.lede { font-size: var(--step-1); color: #C9D1DC; max-width: 33em; margin: 0 0 28px; }
+.lede strong { color: var(--ink); font-weight: 600; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: var(--step--1);
+  padding: 10px 15px; border: 1px solid var(--line-2); border-radius: 6px;
+  color: var(--ink); text-decoration: none; background: rgba(18, 25, 36, 0.8); cursor: pointer;
+  transition: border-color .25s var(--ease), color .25s var(--ease), transform .25s var(--ease), background .25s var(--ease);
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 500; }
+.btn.primary:hover { color: var(--accent-ink); background: #F7B985; }
+.btn .arr { transition: transform .25s var(--ease); }
+.btn:hover .arr { transform: translate(2px, -2px); }
+
+/* Load sequence: rises from a visible state */
+.rise { animation: rise .8s var(--ease) both; }
+.rise.d1 { animation-delay: .08s; } .rise.d2 { animation-delay: .16s; } .rise.d3 { animation-delay: .24s; }
+.rise.d4 { animation-delay: .32s; } .rise.d5 { animation-delay: .44s; }
+@keyframes rise { from { opacity: .3; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* Ticket */
+.ticket {
+  position: relative;
+  background: linear-gradient(180deg, rgba(18,25,36,.92), rgba(14,19,27,.92));
+  border: 1px solid var(--line-2); border-radius: 10px;
+  font-family: var(--mono); font-size: var(--step--1);
+  box-shadow: 0 24px 60px -30px rgba(0,0,0,.8);
+}
+.ticket header {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 13px 18px;
+  border-bottom: 1px dashed var(--line-2); color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em;
+}
+.live { display: inline-flex; align-items: center; gap: 8px; color: var(--live); }
+.pulse { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--live); }
+.pulse::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; border: 1px solid var(--live);
+  animation: ping 2s var(--ease) infinite;
+}
+@keyframes ping { from { transform: scale(1); opacity: .8; } to { transform: scale(3.2); opacity: 0; } }
+.ticket dl { margin: 0; padding: 4px 18px 10px; }
+.ticket .row {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+  padding: 11px 0; border-bottom: 1px solid var(--line);
+}
+.ticket .row:last-child { border-bottom: 0; }
+.ticket dt { color: var(--muted); }
+.ticket dd { margin: 0; font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+.ticket dd em { font-style: normal; color: var(--accent); }
+.ticket dd .from { color: var(--faint); font-weight: 400; }
+.ticket footer { padding: 11px 18px; border-top: 1px dashed var(--line-2); color: var(--faint); }
+.ticket .values { list-style: none; margin: 0; padding: 4px 18px 8px; }
+.ticket .values li { display: grid; gap: 3px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.ticket .values li:last-child { border-bottom: 0; }
+.ticket .values .k { color: var(--accent); text-transform: uppercase; letter-spacing: .08em; font-size: .75rem; }
+.ticket .values .v { font-family: var(--body); font-size: .9375rem; line-height: 1.45; color: var(--ink); }
+
+/* Sections */
+section.block { padding-block: 80px; border-bottom: 1px solid var(--line); }
+section.block.alt { background: var(--bg-2); }
+.section-head { display: grid; gap: 10px; margin-bottom: 44px; }
+@media (min-width: 920px) { .section-head { grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: baseline; } }
+.label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: var(--step--1); color: var(--accent);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.label::before { content: ""; width: 18px; height: 1px; background: var(--accent); }
+h2 {
+  font-family: var(--display); font-stretch: 70%; font-weight: 800;
+  font-size: var(--step-3); line-height: 1; text-transform: uppercase; margin: 0; text-wrap: balance;
+}
+.section-head p { margin: 8px 0 0; color: var(--muted); max-width: 40em; }
+@media (min-width: 920px) { .section-head p { grid-column: 2; } }
+
+/* Case studies */
+.cases { display: grid; gap: 0; }
+.case {
+  position: relative; display: grid; gap: 18px; padding: 36px 0;
+  border-top: 1px solid var(--line);
+}
+.case:last-child { border-bottom: 1px solid var(--line); }
+.case::before {
+  content: ""; position: absolute; left: 0; top: -1px; height: 1px; width: 100%;
+  background: linear-gradient(90deg, var(--accent), transparent 70%);
+  transform: scaleX(0); transform-origin: left; transition: transform .6s var(--ease);
+}
+.case:hover::before { transform: scaleX(1); }
+@media (min-width: 920px) { .case { grid-template-columns: 220px minmax(0, 1fr); gap: 32px; } }
+.case-meta { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.when { font-family: var(--mono); font-size: var(--step--1); color: var(--muted); font-variant-numeric: tabular-nums; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font-family: var(--mono); font-size: 0.75rem; padding: 3px 9px; border-radius: 999px;
+  border: 1px solid var(--line-2); color: var(--muted); background: rgba(18,25,36,.6);
+  transition: color .25s var(--ease), border-color .25s var(--ease);
+}
+.case:hover .chip { color: var(--ink); border-color: #3A4759; }
+.case h3 {
+  font-family: var(--display); font-stretch: 82%; font-weight: 700; font-size: var(--step-2);
+  line-height: 1.15; margin: 0 0 18px; text-wrap: balance; transition: color .3s var(--ease);
+}
+.case:hover h3 { color: #FFF; }
+.case-body { min-width: 0; }
+.prd { display: grid; gap: 14px; margin: 0; }
+.prd > div { display: grid; gap: 2px; }
+@media (min-width: 640px) { .prd > div { grid-template-columns: 104px minmax(0, 1fr); gap: 18px; } }
+.prd dt {
+  font-family: var(--mono); font-size: 0.75rem; color: var(--faint);
+  text-transform: uppercase; letter-spacing: 0.08em; padding-top: 4px;
+}
+.prd dd { margin: 0; max-width: 62ch; color: #C3CBD6; }
+.prd .result dd { color: var(--ink); }
+.metric {
+  font-family: var(--mono); font-weight: 500; color: var(--accent); white-space: nowrap;
+  padding: 0 4px; border-radius: 3px; background: var(--accent-soft);
+}
+.takeaway {
+  display: flex; gap: 10px; align-items: baseline;
+  margin: 18px 0 0; color: var(--muted); font-style: italic; max-width: 64ch;
+}
+.takeaway b { font-style: normal; font-weight: 500; font-family: var(--mono); font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; white-space: nowrap; }
+
+/* Journey */
+.timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+.timeline li {
+  position: relative; display: grid; gap: 4px; padding: 18px 0 18px 26px;
+}
+.timeline li::before {
+  content: ""; position: absolute; left: 4px; top: 0; bottom: 0; width: 1px; background: var(--line-2);
+}
+.timeline li:first-child::before { top: 26px; }
+.timeline li:last-child::before { bottom: calc(100% - 26px); }
+.timeline li::after {
+  content: ""; position: absolute; left: 0; top: 22px; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--bg-2); border: 1px solid var(--faint);
+}
+.timeline li.now::after { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+@media (min-width: 720px) { .timeline li { grid-template-columns: 190px minmax(0, 1fr); gap: 28px; } }
+.timeline time { font-family: var(--mono); font-size: var(--step--1); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.timeline .what { font-weight: 600; display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.timeline .detail { color: var(--muted); margin: 3px 0 0; max-width: 62ch; }
+.timeline li.now time { color: var(--accent); }
+
+/* Builds */
+.builds { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.builds li {
+  display: grid; gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid var(--line);
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 720px) { .builds li { grid-template-columns: 190px minmax(0, 1fr) auto; align-items: baseline; } }
+.builds .yr { font-family: var(--mono); font-size: var(--step--1); color: var(--muted); }
+.builds .yr em { font-style: normal; color: var(--accent); }
+.builds .nm { min-width: 0; }
+.builds .nm strong { font-weight: 600; margin-right: 8px; }
+.builds .nm span { color: var(--muted); }
+.builds .lk { display: flex; gap: 14px; font-family: var(--mono); font-size: var(--step--1); }
+.builds .lk span { color: var(--faint); }
+
+/* Stack */
+.stack { display: grid; gap: 0; margin: 0; }
+.stack > div { display: grid; gap: 6px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.stack > div:first-child { border-top: 1px solid var(--line); }
+@media (min-width: 720px) { .stack > div { grid-template-columns: 190px minmax(0, 1fr); gap: 28px; align-items: baseline; } }
+.stack dt { font-family: var(--mono); font-size: 0.75rem; color: var(--faint); text-transform: uppercase; letter-spacing: 0.08em; }
+.stack dd { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.stack dd span {
+  font-size: 0.9375rem; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line-2);
+  transition: border-color .25s var(--ease), color .25s var(--ease);
+}
+.stack dd span:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Beyond */
+.beyond { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 720px) { .beyond { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.beyond > div {
+  min-width: 0; padding: 20px 22px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface);
+  transition: border-color .3s var(--ease), transform .3s var(--ease);
+}
+.beyond > div:hover { border-color: var(--line-2); transform: translateY(-2px); }
+.beyond strong { display: block; font-weight: 600; margin-bottom: 4px; }
+.beyond span { color: var(--muted); }
+
+/* Contact */
+.contact-card {
+  position: relative; overflow: hidden;
+  border: 1px solid var(--line-2); border-radius: 14px; padding: clamp(28px, 5vw, 56px);
+  background: radial-gradient(80% 120% at 100% 0%, rgba(242,167,102,.10), transparent 60%), var(--surface);
+}
+.contact-card h2 { font-size: clamp(2.25rem, 6vw, 3.75rem); margin: 14px 0 16px; }
+.contact-card p { margin: 0 0 26px; max-width: 38em; color: #C3CBD6; font-size: var(--step-1); }
+.contact-card::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(242,167,102,.38) 1px, transparent 1.6px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(65% 95% at 100% 0%, #000 0%, transparent 70%);
+          mask-image: radial-gradient(65% 95% at 100% 0%, #000 0%, transparent 70%);
+}
+.contact-card > * { position: relative; }
+.email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 18px; }
+.email {
+  font-family: var(--mono); font-size: var(--step-1); user-select: all; overflow-wrap: anywhere;
+  padding: 9px 14px; background: var(--bg); border: 1px solid var(--line-2); border-radius: 6px;
+}
+#copy-status { font-family: var(--mono); font-size: var(--step--1); color: var(--live); min-height: 1em; }
+
+footer.site { padding-block: 32px 48px; font-family: var(--mono); font-size: var(--step--1); color: var(--faint); }
+footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .name { background: none; color: var(--ink); }
+}
+</style>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a class="wordmark" href="#top">A. Narayan</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li class="hide-sm"><a href="#journey">Journey</a></li>
+      <li class="hide-sm"><a href="#stack">Stack</a></li>
+      <li><a href="#builds">Builds</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="status rise"><span class="led" aria-hidden="true"></span> Currently building <strong>a reconciliation engine in Java</strong></p>
+      <h1 class="name rise d1">Adithya<br>Narayan</h1>
+      <p class="role rise d2">Backend engineer &amp; team lead</p>
+      <p class="lede rise d3">I build, test and secure <strong>financial trading software</strong> at ION Trading. Three and a half years across backend services, CI and test automation, performance and security. Now leading a team of four.</p>
+      <div class="links rise d4">
+        <a class="btn primary" href="#work">See the work</a>
+        <a class="btn" href="https://www.linkedin.com/in/adithya-narayan-3747081a3/" target="_blank" rel="noopener">LinkedIn <span class="arr">↗</span></a>
+        <a class="btn" href="https://github.com/NarayanAdithya" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
+      </div>
+    </div>
+
+    <aside class="ticket rise d5" aria-label="How I work">
+      <header><span>How I work</span></header>
+      <ul class="values">
+        <li><span class="k">Ownership</span><span class="v">If it matters and nobody owns it, I pick it up and see it through.</span></li>
+        <li><span class="k">Depth</span><span class="v">I chase the root cause, not the workaround.</span></li>
+        <li><span class="k">Adaptability</span><span class="v">New stack, new domain, new role: I learn what the problem needs.</span></li>
+        <li><span class="k">Bias for action</span><span class="v">Ship a working slice first, then make it better.</span></li>
+      </ul>
+      <footer>ION Trading · Hyderabad · since Jan 2023</footer>
+    </aside>
+  </div>
+</header>
+
+<main>
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">Selected work</span>
+        <div>
+          <h2>Problems I owned end to end</h2>
+          <p>Client names and internal details are left out. Each one covers the problem, the call I made, and what happened.</p>
+        </div>
+      </div>
+
+      <div class="cases">
+        <article class="case">
+          <div class="case-meta">
+            <span class="when">2023</span>
+            <div class="chips"><span class="chip">Java</span><span class="chip">Selenium</span><span class="chip">Robot Framework</span><span class="chip">Jenkins</span></div>
+          </div>
+          <div class="case-body">
+            <h3>Test automation for a newly acquired trading platform</h3>
+            <dl class="prd">
+              <div><dt>Problem</dt><dd>The platform had only manual testing. A full regression took over three months, so feedback on every change was slow.</dd></div>
+              <div><dt>Decision</dt><dd>The UI and backend were tightly coupled over WebSockets, so I tested through real user flows: Java Selenium keywords for Robot Framework, mocked markets, and a CI defined entirely as code with Jenkins Job DSL so it could be rebuilt from scratch.</dd></div>
+              <div class="result"><dt>Result</dt><dd>The team grew my first four tests into <span class="metric">~900</span>. Full regression now runs in <span class="metric">4–6 hours</span> on one machine, and manual regression is gone.</dd></div>
+            </dl>
+            <p class="takeaway"><b>Learned</b> The most useful thing I built was a foundation other people could keep extending.</p>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-meta">
+            <span class="when">2024</span>
+            <div class="chips"><span class="chip">Docker Swarm</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Node.js</span></div>
+          </div>
+          <div class="case-body">
+            <h3>Load testing to a contractual target, from nothing</h3>
+            <dl class="prd">
+              <div><dt>Problem</dt><dd>A client contract expected around 200 concurrent users. The product had never been performance tested.</dd></div>
+              <div><dt>Decision</dt><dd>The server couldn't be loaded directly at the API, so I reused the acceptance-test user flows to simulate many users. One machine fell over at about 50, so I spread containers across spot machines with Docker Swarm and instrumented the code with Prometheus and Grafana, all behind a one-click Jenkins job with warm-up and burst phases.</dd></div>
+              <div class="result"><dt>Result</dt><dd>Validated <span class="metric">200+ users</span>, found a WebSocket bottleneck in the Node.js tier, and prototyped horizontal scaling as the fix.</dd></div>
+            </dl>
+            <p class="takeaway"><b>Learned</b> When the obvious tool doesn't fit, the harness you already have often does.</p>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-meta">
+            <span class="when">2023 – 2024</span>
+            <div class="chips"><span class="chip">FIX</span><span class="chip">Integration</span><span class="chip">GUI</span></div>
+          </div>
+          <div class="case-body">
+            <h3>Joining a front-office platform to a legacy back office</h3>
+            <dl class="prd">
+              <div><dt>Problem</dt><dd>A high-visibility client project with tight deadlines: embed our trading GUI in the client's portal and send trades downstream to a legacy system. The two systems disagreed on whether a user could act on behalf of other organisations.</dd></div>
+              <div><dt>Decision</dt><dd>With a senior engineer, I designed a parent/child user model with in-portal user switching, and integrated downstream over FIX. I also clarified requirements with Product and set up the standard release-request process.</dd></div>
+              <div class="result"><dt>Result</dt><dd>The design is still in production. I became the go-to engineer for the integration and handed it over to Customer Support.</dd></div>
+            </dl>
+            <p class="takeaway"><b>Learned</b> A clean model on paper loses to one both systems can live with.</p>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-meta">
+            <span class="when">2024 – 2025</span>
+            <div class="chips"><span class="chip">Azure AD B2C</span><span class="chip">Graph API</span><span class="chip">Node.js</span><span class="chip">AWS</span></div>
+          </div>
+          <div class="case-body">
+            <h3>Multi-factor authentication for every client</h3>
+            <dl class="prd">
+              <div><dt>Problem</dt><dd>A company-wide mandate to enforce MFA. I inherited an early proof of concept and owned the rest: breakdown, build and client rollout. Users with several accounts blocked the design before any MFA work could ship.</dd></div>
+              <div><dt>Decision</dt><dd>I wrote up the options and got stakeholder sign-off on a fix for each kind of multi-account user. For the rollout I stood up parallel instances of the shared service instead of upgrading it, and switched MFA on per client through configuration, so any client could be rolled back on its own. I built a Graph API tool to migrate users into Azure.</dd></div>
+              <div class="result"><dt>Result</dt><dd><span class="metric">11 clients</span>, tens of thousands of users, <span class="metric">0 rollbacks</span>. Ours was the first product at ION to finish, and other teams reused the approach.</dd></div>
+            </dl>
+            <p class="takeaway"><b>Learned</b> A one-sprint estimate usually means the hard part hasn't been found yet.</p>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-meta">
+            <span class="when">2025</span>
+            <div class="chips"><span class="chip">Incident response</span><span class="chip">Vulnerability management</span></div>
+          </div>
+          <div class="case-body">
+            <h3>A security incident, and the process it led to</h3>
+            <dl class="prd">
+              <div><dt>Problem</dt><dd>As the product's security officer, I joined a weekend production security incident on the application side.</dd></div>
+              <div><dt>Decision</dt><dd>I reproduced the exploit in a test environment, which pinned down the root cause, and we shipped a fix and runtime upgrade to every client deployment before the next business day. Afterwards I built a division-wide vulnerability dashboard and wrote remediation workflows with SLAs, so we would act on findings instead of only reading reports.</dd></div>
+              <div class="result"><dt>Result</dt><dd>The workflows were presented at a CEO session and adopted across the division and by other divisions.</dd></div>
+            </dl>
+            <p class="takeaway"><b>Learned</b> Visibility without a process just makes the backlog easier to see.</p>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case-meta">
+            <span class="when">2026 – now</span>
+            <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">Hibernate</span><span class="chip">Team lead</span></div>
+          </div>
+          <div class="case-body">
+            <h3>Leading a platform migration</h3>
+            <dl class="prd">
+              <div><dt>Problem</dt><dd>Move a trading solution onto a new back-office platform, with a team of four, two of them new joiners.</dd></div>
+              <div><dt>Decision</dt><dd>I lead as a hands-on engineer: I write code, review the team's code and make the design calls, from replacing nested async callbacks with combinator pipelines to untangling clashing type hierarchies with a couple of well-placed patterns. I also run planning, estimation and retros.</dd></div>
+              <div class="result"><dt>Result</dt><dd>In progress. Alongside it I own a monitoring upgrade in a key client's production environment, and I interview candidates for developer roles.</dd></div>
+            </dl>
+            <p class="takeaway"><b>Learned</b> Estimation is the skill my team and I are still building.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt" id="journey">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">Journey</span>
+        <h2>How I got here</h2>
+      </div>
+      <ol class="timeline">
+        <li><time>2019 – 2023</time><div><div class="what">B.Tech, Computer Science (Business Systems), VIT Vellore</div><p class="detail">CGPA 9.41, third in my batch. Backend and CI/CD at a campus startup, and technical head at another.</p></div></li>
+        <li><time>Jan 2023</time><div><div class="what">Joined ION Trading</div><p class="detail">Placed on a newly acquired front-office trading platform. Started on support.</p></div></li>
+        <li><time>2023</time><div><div class="what">Built CI and test automation</div><p class="detail">Also won first place at ION's internal hackathon.</p></div></li>
+        <li><time>2023 – 2024</time><div><div class="what">Client integration and load testing</div></div></li>
+        <li><time>2024 – 2025</time><div><div class="what">Owned MFA end to end</div></div></li>
+        <li><time>2025</time><div><div class="what">Product security officer</div><p class="detail">Incident response, then vulnerability workflows and a dashboard for the division. Business continuity testing for several products.</p></div></li>
+        <li><time>Jan 2026</time><div><div class="what">Spoke at ION's global induction</div><p class="detail">Presented to 250+ graduate hires and the executive team.</p></div></li>
+        <li class="now"><time>2026 – now</time><div><div class="what">Team lead</div><p class="detail">Leading a team of four on a platform migration, client production monitoring, and interviewing developer candidates.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="stack">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">Stack</span>
+        <h2>What I work with</h2>
+      </div>
+      <dl class="stack">
+        <div><dt>Languages</dt><dd><span>Java</span><span>JavaScript</span><span>Node.js</span><span>Python</span><span>Groovy</span></dd></div>
+        <div><dt>Backend</dt><dd><span>Spring Boot</span><span>Hibernate</span><span>Microservices</span><span>REST</span><span>WebSockets</span><span>FIX</span></dd></div>
+        <div><dt>Testing</dt><dd><span>Robot Framework</span><span>Selenium</span><span>Acceptance testing</span><span>Load testing</span></dd></div>
+        <div><dt>CI/CD &amp; ops</dt><dd><span>Jenkins</span><span>Docker</span><span>Docker Swarm</span><span>Nexus</span><span>Prometheus</span><span>Grafana</span></dd></div>
+        <div><dt>Security</dt><dd><span>Azure AD B2C</span><span>MFA</span><span>Graph API</span><span>Vulnerability management</span><span>Incident response</span></dd></div>
+        <div><dt>Domain</dt><dd><span>Trading systems</span><span>Front to back office</span><span>Financial services</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="block alt" id="beyond">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">Beyond code</span>
+        <h2>People and process</h2>
+      </div>
+      <div class="beyond">
+        <div><strong>Interviewing</strong><span>I interview candidates for developer roles at ION.</span></div>
+        <div><strong>Speaking</strong><span>"Product Development" at ION's 2026 global induction, and "How to present" for new hires.</span></div>
+        <div><strong>Team growth</strong><span>Performance reviews, and a knowledge-transfer rotation so the team doesn't depend on one person for production analysis.</span></div>
+        <div><strong>Hackathons</strong><span>First place at ION's internal hackathon (2023) and at PrepBytes-O-Mega Fest (2020).</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="builds">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">Earlier builds</span>
+        <div>
+          <h2>From hackathons and college</h2>
+        </div>
+      </div>
+      <ul class="builds">
+        <li><span class="yr">2023 · <em>1st place</em></span><span class="nm"><strong>Financial Intelligence Pipeline</strong><span>AI pipeline that extracts financial data from exchange filings. ION hackathon.</span></span><span class="lk"><span>Internal</span></span></li>
+        <li><span class="yr">2021</span><span class="nm"><strong>Sign-To-Text</strong><span>Real-time hand-sign recognition with Azure Custom Vision.</span></span><span class="lk"><a href="https://github.com/NarayanAdithya/azure-image-classifier" target="_blank" rel="noopener">Code ↗</a><a href="https://youtu.be/0V5YnwqumAI" target="_blank" rel="noopener">Demo ↗</a></span></li>
+        <li><span class="yr">2021</span><span class="nm"><strong>Gantt Chart Maker</strong><span>Live Gantt charts with Plotly, deployed on PythonAnywhere.</span></span><span class="lk"><a href="https://github.com/NarayanAdithya/Gantt-Chart-Maker" target="_blank" rel="noopener">Code ↗</a></span></li>
+        <li><span class="yr">2020 · <em>1st place</em></span><span class="nm"><strong>CELIS</strong><span>Personalised course recommender across e-learning platforms. PrepBytes hackathon.</span></span><span class="lk"><span>Hackathon</span></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="contact" style="border-bottom:0">
+    <div class="wrap">
+      <div class="contact-card">
+        <span class="label">Contact</span>
+        <h2>Let's talk</h2>
+        <p>Happy to talk about trading systems, test automation, security, or engineering in general. Email is the quickest way to reach me.</p>
+        <div class="email-row">
+          <span class="email" id="email">adithyanarayan1234@gmail.com</span>
+          <button class="btn primary" id="copy" type="button">Copy email</button>
+          <span id="copy-status" role="status" aria-live="polite"></span>
+        </div>
+        <div class="links">
+          <a class="btn" href="https://www.linkedin.com/in/adithya-narayan-3747081a3/" target="_blank" rel="noopener">LinkedIn <span class="arr">↗</span></a>
+          <a class="btn" href="https://github.com/NarayanAdithya" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap"><span>Adithya Narayan · Hyderabad, India</span><span>Updated Oct 2026</span></div>
+</footer>
+
+<script>
+(function () {
+  /* Dot-matrix field behind the hero: a slow travelling wave, brighter near the pointer */
+  var canvas = document.getElementById('field');
+  var hero = document.getElementById('top');
+  var ctx = canvas.getContext('2d');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, dpr = 1, gap = 24, pts = [];
+  var mx = -9999, my = -9999, tx = -9999, ty = -9999;
+
+  function size() {
+    var r = hero.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    gap = W < 600 ? 20 : 24;
+    pts = [];
+    for (var y = gap / 2; y < H; y += gap) for (var x = gap / 2; x < W; x += gap) pts.push(x, y);
+  }
+
+  function draw(t) {
+    ctx.clearRect(0, 0, W, H);
+    mx += (tx - mx) * 0.12; my += (ty - my) * 0.12;
+    for (var i = 0; i < pts.length; i += 2) {
+      var x = pts[i], y = pts[i + 1];
+      var w = 0.5 + 0.5 * Math.sin(x * 0.014 + y * 0.009 - t * 0.0011);
+      w = w * w * w;
+      var dx = x - mx, dy = y - my;
+      var g = Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / 170);
+      var a = 0.07 + 0.22 * w + 0.6 * g;
+      var r = 1 + 0.6 * w + 1.2 * g;
+      ctx.fillStyle = g > 0.02 || w > 0.6
+        ? 'rgba(242,167,102,' + Math.min(a, 0.9) + ')'
+        : 'rgba(140,151,168,' + a + ')';
+      ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); ctx.fill();
     }
-    </script>
-
-    <link rel="apple-touch-icon" sizes="180x180" href="app/static/img/circle-cropped.png">
-    <link rel="icon" type="image/png" href="app/static/img/circle-cropped.png" sizes="32x32">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
-                    animation: {
-                        'fade-up': 'fadeUp 0.6s ease forwards',
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                    },
-                    keyframes: {
-                        fadeUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-                        float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-20px)' } },
-                        glow: { '0%': { boxShadow: '0 0 20px rgba(139,92,246,0.4)' }, '100%': { boxShadow: '0 0 60px rgba(139,92,246,0.8)' } },
-                    }
-                }
-            }
-        }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PT5VNR57G8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-PT5VNR57G8');
-    </script>
-
-    <style>
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: #080810; color: #e2e8f0; overflow-x: hidden; }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #080810; }
-        ::-webkit-scrollbar-thumb { background: #6d28d9; border-radius: 3px; }
-
-        /* Gradient text */
-        .gradient-text {
-            background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 40%, #c084fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .gradient-text-warm {
-            background: linear-gradient(135deg, #f0abfc 0%, #a78bfa 50%, #818cf8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Glass card */
-        .glass {
-            background: rgba(139, 92, 246, 0.04);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(139, 92, 246, 0.15);
-        }
-        .glass:hover {
-            background: rgba(139, 92, 246, 0.08);
-            border-color: rgba(139, 92, 246, 0.4);
-        }
-
-        /* Mesh background */
-        .hero-bg {
-            background-color: #080810;
-            background-image:
-                radial-gradient(ellipse 80% 60% at 50% -10%, rgba(109,40,217,0.25) 0%, transparent 60%),
-                radial-gradient(ellipse 50% 40% at 80% 50%, rgba(192,132,252,0.1) 0%, transparent 50%);
-        }
-
-        /* Dot grid */
-        .dot-grid {
-            background-image: radial-gradient(rgba(139,92,246,0.15) 1px, transparent 1px);
-            background-size: 32px 32px;
-        }
-
-        /* Nav blur */
-        .nav-glass {
-            background: rgba(8, 8, 16, 0.8);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid rgba(139,92,246,0.1);
-        }
-
-        /* Scroll reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
-
-        /* Photo ring */
-        .photo-ring {
-            background: conic-gradient(from 0deg, #7c3aed, #c084fc, #4f46e5, #7c3aed);
-            border-radius: 50%;
-            padding: 3px;
-        }
-
-        /* Tech card hover */
-        .tech-card {
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .tech-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(109,40,217,0.25);
-        }
-
-        /* Project card */
-        .project-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .project-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(109,40,217,0.3); }
-        .project-overlay {
-            background: linear-gradient(to top, rgba(8,8,16,0.95) 0%, rgba(8,8,16,0.4) 60%, transparent 100%);
-        }
-
-        /* Section label */
-        .section-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: #a78bfa;
-            margin-bottom: 12px;
-        }
-        .section-label::before, .section-label::after {
-            content: '';
-            display: block;
-            width: 32px;
-            height: 1px;
-            background: #7c3aed;
-        }
-
-        /* Button styles */
-        .btn-primary {
-            background: linear-gradient(135deg, #7c3aed, #6d28d9);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(109,40,217,0.5);
-        }
-        .btn-outline {
-            border: 1px solid rgba(139,92,246,0.4);
-            background: transparent;
-            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-        }
-        .btn-outline:hover {
-            transform: translateY(-2px);
-            background: rgba(139,92,246,0.1);
-            border-color: rgba(139,92,246,0.8);
-        }
-
-        /* Mobile menu */
-        #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-        #mobile-menu.open { max-height: 400px; }
-
-        /* Nav link active */
-        .nav-link { position: relative; }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px; left: 0; right: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #7c3aed, #c084fc);
-            transition: right 0.3s ease;
-        }
-        .nav-link:hover::after { right: 0; }
-
-        /* Glowing orbs */
-        .orb {
-            border-radius: 50%;
-            filter: blur(80px);
-            position: absolute;
-            pointer-events: none;
-        }
-
-        /* Timeline */
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0; bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, transparent, #7c3aed 8%, #7c3aed 92%, transparent);
-            transform: translateX(-50%);
-        }
-        @media (max-width: 767px) {
-            .timeline-line { left: 20px; }
-        }
-        .timeline-dot {
-            width: 14px; height: 14px;
-            border-radius: 50%;
-            background: #7c3aed;
-            border: 3px solid #c084fc;
-            box-shadow: 0 0 12px rgba(139,92,246,0.6);
-            flex-shrink: 0;
-        }
-        .timeline-connector {
-            position: absolute;
-            top: 50%;
-            width: 40px; height: 2px;
-            background: linear-gradient(90deg, #7c3aed, rgba(139,92,246,0.3));
-        }
-        .timeline-item-left .timeline-connector { right: -40px; }
-        .timeline-item-right .timeline-connector { left: -40px; background: linear-gradient(270deg, #7c3aed, rgba(139,92,246,0.3)); }
-
-        /* Skill chip (larger than tag-chip, used in stack categories) */
-        .skill-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 5px 12px;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            background: rgba(139,92,246,0.1);
-            border: 1px solid rgba(139,92,246,0.2);
-            color: #c4b5fd;
-            white-space: nowrap;
-        }
-
-        /* Tag chip */
-        .tag-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 3px 10px;
-            border-radius: 999px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            background: rgba(139,92,246,0.15);
-            border: 1px solid rgba(139,92,246,0.25);
-            color: #c4b5fd;
-            transition: background 0.2s, border-color 0.2s;
-            text-decoration: none;
-        }
-        .tag-chip:hover {
-            background: rgba(139,92,246,0.3);
-            border-color: rgba(139,92,246,0.6);
-            color: #ede9fe;
-        }
-        .tag-wip {
-            background: rgba(239,68,68,0.15);
-            border-color: rgba(239,68,68,0.3);
-            color: #fca5a5;
-        }
-        .tag-wip:hover { background: rgba(239,68,68,0.2); }
-    </style>
-</head>
-
-<body class="hero-bg">
-
-    <!-- ===================== NAV ===================== -->
-    <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 lg:px-10">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo -->
-                <a href="#home" class="text-xl font-bold tracking-tight">
-                    <span class="gradient-text">adithya</span><span class="text-white/40">.</span><span class="text-white">narayan</span>
-                </a>
-
-                <!-- Desktop links -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#home" class="nav-link text-sm text-zinc-300 hover:text-white transition-colors">Home</a>
-                    <a href="#journey" class="nav-link text-sm text-zinc-300 hover:text-white transition-colors">Journey</a>
-                    <a href="#stack" class="nav-link text-sm text-zinc-300 hover:text-white transition-colors">Stack</a>
-                    <a href="#projects" class="nav-link text-sm text-zinc-300 hover:text-white transition-colors">Projects</a>
-                    <a href="#demos" class="nav-link text-sm text-zinc-300 hover:text-white transition-colors">Experiments</a>
-                    <a href="#contact" class="nav-link text-sm text-zinc-300 hover:text-white transition-colors">Contact</a>
-                    <a href="app/static/files/ats_resume.pdf" download class="btn-primary text-sm font-semibold text-white px-5 py-2 rounded-full">
-                        Resume ↓
-                    </a>
-                </div>
-
-                <!-- Hamburger -->
-                <button id="menu-btn" class="md:hidden p-2 rounded-lg hover:bg-purple-900/30 transition-colors" aria-label="Menu">
-                    <div class="space-y-1.5" id="hamburger-icon">
-                        <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
-                        <span class="block w-4 h-0.5 bg-white transition-all duration-300"></span>
-                        <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
-                    </div>
-                </button>
-            </div>
-
-            <!-- Mobile menu -->
-            <div id="mobile-menu" class="md:hidden">
-                <div class="flex flex-col gap-1 py-4 border-t border-white/5">
-                    <a href="#home" class="mobile-link px-3 py-2 rounded-lg text-zinc-300 hover:bg-purple-900/30 hover:text-white transition-colors text-sm">Home</a>
-                    <a href="#journey" class="mobile-link px-3 py-2 rounded-lg text-zinc-300 hover:bg-purple-900/30 hover:text-white transition-colors text-sm">Journey</a>
-                    <a href="#stack" class="mobile-link px-3 py-2 rounded-lg text-zinc-300 hover:bg-purple-900/30 hover:text-white transition-colors text-sm">Stack</a>
-                    <a href="#projects" class="mobile-link px-3 py-2 rounded-lg text-zinc-300 hover:bg-purple-900/30 hover:text-white transition-colors text-sm">Projects</a>
-                    <a href="#demos" class="mobile-link px-3 py-2 rounded-lg text-zinc-300 hover:bg-purple-900/30 hover:text-white transition-colors text-sm">Experiments</a>
-                    <a href="#contact" class="mobile-link px-3 py-2 rounded-lg text-zinc-300 hover:bg-purple-900/30 hover:text-white transition-colors text-sm">Contact</a>
-                    <a href="app/static/files/ats_resume.pdf" download class="mt-2 btn-primary text-center text-sm font-semibold text-white px-5 py-2 rounded-full">Resume ↓</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- ===================== HERO ===================== -->
-    <section id="home" class="relative min-h-screen flex items-center dot-grid pt-16">
-        <!-- Glow orbs -->
-        <div class="orb w-96 h-96 bg-purple-800/30 top-10 -left-48"></div>
-        <div class="orb w-80 h-80 bg-violet-600/20 bottom-20 right-0"></div>
-
-        <div class="max-w-6xl mx-auto px-6 lg:px-10 w-full py-20">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Left: Text -->
-                <div class="space-y-7">
-                    <div class="section-label">Hello, World</div>
-
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight">
-                        <span class="text-white">Adithya</span><br>
-                        <span class="gradient-text">Narayan</span>
-                    </h1>
-
-                    <div class="space-y-2">
-                        <p class="text-zinc-300 text-lg font-medium">Software Engineer · Security Officer · AI Enablement Lead</p>
-                        <div class="flex flex-wrap gap-x-6 gap-y-1 text-sm text-zinc-500 font-mono">
-                            <span><span class="text-purple-400">O</span>wnership</span>
-                            <span><span class="text-purple-400">A</span>daptability</span>
-                            <span><span class="text-purple-400">B</span>ias for Action</span>
-                            <span><span class="text-purple-400">D</span>epth</span>
-                        </div>
-                    </div>
-
-                    <p class="text-zinc-400 text-base leading-relaxed max-w-lg">
-                        3+ years building, securing, and scaling mission-critical systems at ION Trading.
-                        From solo MFA rollouts to company-wide security frameworks to AI enablement — I find the problems nobody assigned me, own them end to end, and ship things that actually get adopted.
-                    </p>
-
-                    <!-- Social icons -->
-                    <div class="flex items-center gap-4">
-                        <a href="https://github.com/NarayanAdithya" target="_blank" rel="noopener" aria-label="GitHub"
-                            class="w-10 h-10 rounded-full glass flex items-center justify-center text-zinc-400 hover:text-white hover:border-purple-500/50 transition-all">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                        </a>
-                        <a href="https://www.linkedin.com/in/adithya-narayan-3747081a3/" target="_blank" rel="noopener" aria-label="LinkedIn"
-                            class="w-10 h-10 rounded-full glass flex items-center justify-center text-zinc-400 hover:text-white hover:border-purple-500/50 transition-all">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </a>
-                        <a href="mailto:adithyanarayan1234@gmail.com" aria-label="Email"
-                            class="w-10 h-10 rounded-full glass flex items-center justify-center text-zinc-400 hover:text-white hover:border-purple-500/50 transition-all">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
-                        </a>
-                    </div>
-
-                    <!-- CTAs -->
-                    <div class="flex flex-wrap gap-4 pt-2">
-                        <a href="#projects" class="btn-primary text-white font-semibold px-7 py-3 rounded-full text-sm inline-flex items-center gap-2">
-                            View My Work
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </a>
-                        <a href="app/static/files/ats_resume.pdf" download class="btn-outline text-white font-semibold px-7 py-3 rounded-full text-sm inline-flex items-center gap-2">
-                            Download CV
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right: Photo -->
-                <div class="flex justify-center lg:justify-end">
-                    <div class="relative animate-float">
-                        <!-- Glow behind -->
-                        <div class="absolute inset-0 rounded-full bg-purple-600/30 blur-3xl scale-110"></div>
-                        <!-- Spinning ring -->
-                        <div class="photo-ring relative">
-                            <div class="bg-zinc-900 rounded-full p-1">
-                                <img src="app/static/img/adithya.JPG" alt="Adithya Narayan — Software Engineer at ION Trading"
-                                    class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover">
-                            </div>
-                        </div>
-                        <!-- Floating badge -->
-                        <div class="absolute -bottom-4 -left-4 glass rounded-2xl px-4 py-2 text-xs font-semibold text-purple-300 border-purple-500/30">
-                            <span class="text-green-400 mr-1">●</span> Open to opportunities
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-600 text-xs">
-            <span>Scroll</span>
-            <div class="w-0.5 h-8 bg-gradient-to-b from-purple-500 to-transparent"></div>
-        </div>
-    </section>
-
-    <!-- ===================== JOURNEY ===================== -->
-    <section id="journey" class="py-28 relative">
-        <div class="orb w-72 h-72 bg-violet-900/20 top-0 left-1/4"></div>
-        <div class="max-w-5xl mx-auto px-6 lg:px-10">
-            <div class="text-center mb-20 reveal">
-                <div class="section-label">Where I've Been</div>
-                <h2 class="text-4xl md:text-5xl font-bold text-white mt-3">My Journey</h2>
-                <p class="text-zinc-500 text-sm mt-3">ION Trading India · Jan 2023 – Present · FX Front Office</p>
-            </div>
-
-            <!-- Timeline wrapper -->
-            <div class="relative">
-                <div class="timeline-line hidden md:block"></div>
-
-                <!-- ── College: VIT Vellore ── -->
-                <div class="md:grid md:grid-cols-2 md:gap-12 mb-14 reveal">
-                    <div class="hidden md:flex items-center justify-end pr-16">
-                        <div class="space-y-1 text-right">
-                            <p class="text-purple-300 font-mono font-bold text-lg">2019 – 2023</p>
-                            <p class="text-zinc-500 text-sm">Where it all started</p>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="glass rounded-2xl p-6 space-y-3 timeline-item-right relative">
-                            <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[54px] hidden md:flex items-center flex-row-reverse">
-                                <div class="timeline-connector"></div>
-                                <div class="timeline-dot"></div>
-                            </div>
-                            <div class="flex items-center gap-3 md:hidden mb-2">
-                                <div class="timeline-dot"></div>
-                                <span class="text-xs text-purple-400 font-mono font-semibold">2019 – 2023</span>
-                            </div>
-                            <p class="text-xs text-purple-400 font-mono font-semibold uppercase tracking-wider">Education</p>
-                            <h3 class="text-white font-bold text-base">B.Tech · Computer Science &amp; Business Systems</h3>
-                            <p class="text-zinc-500 text-xs">Vellore Institute of Technology · Graduated 3rd in batch</p>
-                            <p class="text-zinc-400 text-sm leading-relaxed">
-                                Technical Lead at Kite India and Cloud/Backend Developer at Papersdrop — both incubated startups. Hackathon wins, a PyPI package, Azure and ML experiments. The years that made building feel natural.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-1">
-                                <span class="tag-chip">VIT Vellore</span>
-                                <span class="tag-chip">Technical Lead</span>
-                                <span class="tag-chip">Kite India</span>
-                                <span class="tag-chip">Papersdrop</span>
-                                <span class="tag-chip">Hackathons</span>
-                                <span class="tag-chip">Azure · ML</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ── Phase 1: Automation Infrastructure ── -->
-                <div class="md:grid md:grid-cols-2 md:gap-12 mb-14 reveal">
-                    <div class="relative mb-8 md:mb-0">
-                        <div class="glass rounded-2xl p-6 space-y-3 timeline-item-left relative">
-                            <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[54px] hidden md:flex items-center">
-                                <div class="timeline-connector"></div>
-                                <div class="timeline-dot"></div>
-                            </div>
-                            <div class="flex items-center gap-3 md:hidden mb-2">
-                                <div class="timeline-dot"></div>
-                                <span class="text-xs text-purple-400 font-mono font-semibold">2023</span>
-                            </div>
-                            <p class="text-xs text-purple-400 font-mono font-semibold uppercase tracking-wider">Automation Engineering</p>
-                            <h3 class="text-white font-bold text-base">Test Automation Infrastructure — Built from Zero</h3>
-                            <p class="text-zinc-500 text-xs">ION Trading · FX Division</p>
-                            <p class="text-zinc-400 text-sm leading-relaxed">
-                                Architected and delivered the complete test automation framework for the FX front-office product from the ground up — establishing continuous regression, release gating, and a foundation for quality across the product lifecycle.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-1">
-                                <span class="tag-chip">Python</span>
-                                <span class="tag-chip">Jenkins</span>
-                                <span class="tag-chip">Test Frameworks</span>
-                                <span class="tag-chip">CI/CD</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hidden md:flex items-center pl-16">
-                        <div class="space-y-1">
-                            <p class="text-purple-300 font-mono font-bold text-lg">2023</p>
-                            <p class="text-zinc-500 text-sm">Joined ION · First mandate</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ── Phase 2: Performance Benchmarking ── -->
-                <div class="md:grid md:grid-cols-2 md:gap-12 mb-14 reveal">
-                    <div class="hidden md:flex items-center justify-end pr-16">
-                        <div class="space-y-1 text-right">
-                            <p class="text-purple-300 font-mono font-bold text-lg">2024</p>
-                            <p class="text-zinc-500 text-sm">Scale &amp; stress-testing</p>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="glass rounded-2xl p-6 space-y-3 timeline-item-right relative">
-                            <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[54px] hidden md:flex items-center flex-row-reverse">
-                                <div class="timeline-connector"></div>
-                                <div class="timeline-dot"></div>
-                            </div>
-                            <div class="flex items-center gap-3 md:hidden mb-2">
-                                <div class="timeline-dot"></div>
-                                <span class="text-xs text-purple-400 font-mono font-semibold">2024</span>
-                            </div>
-                            <p class="text-xs text-purple-400 font-mono font-semibold uppercase tracking-wider">Performance Engineering</p>
-                            <h3 class="text-white font-bold text-base">Performance Benchmarking Environment</h3>
-                            <p class="text-zinc-500 text-xs">Load, stress &amp; capacity testing</p>
-                            <p class="text-zinc-400 text-sm leading-relaxed">
-                                Led the strategy, design, and full implementation of the performance testing infrastructure — enabling rigorous load and stress benchmarking across product releases to quantify capacity limits and catch regressions before they reached clients.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-1">
-                                <span class="tag-chip">Performance Testing</span>
-                                <span class="tag-chip">Load Testing</span>
-                                <span class="tag-chip">Benchmarking</span>
-                                <span class="tag-chip">Infra Design</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ── Phase 3: Contractual Feature Dev ── -->
-                <div class="md:grid md:grid-cols-2 md:gap-12 mb-14 reveal">
-                    <div class="relative mb-8 md:mb-0">
-                        <div class="glass rounded-2xl p-6 space-y-3 timeline-item-left relative">
-                            <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[54px] hidden md:flex items-center">
-                                <div class="timeline-connector"></div>
-                                <div class="timeline-dot"></div>
-                            </div>
-                            <div class="flex items-center gap-3 md:hidden mb-2">
-                                <div class="timeline-dot"></div>
-                                <span class="text-xs text-purple-400 font-mono font-semibold">2024</span>
-                            </div>
-                            <p class="text-xs text-purple-400 font-mono font-semibold uppercase tracking-wider">Feature Development</p>
-                            <h3 class="text-white font-bold text-base">Contractual Client Feature Delivery</h3>
-                            <p class="text-zinc-500 text-xs">End-to-end ownership · Client environments</p>
-                            <p class="text-zinc-400 text-sm leading-relaxed">
-                                Took full ownership of contractual feature delivery — from requirements through development, QA, and client deployment. Provided hands-on technical support directly within client environments, ensuring stable and smooth rollouts.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-1">
-                                <span class="tag-chip">Feature Engineering</span>
-                                <span class="tag-chip">Client Engagement</span>
-                                <span class="tag-chip">Production Delivery</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hidden md:flex items-center pl-16">
-                        <div class="space-y-1">
-                            <p class="text-purple-300 font-mono font-bold text-lg">2024</p>
-                            <p class="text-zinc-500 text-sm">Direct client ownership</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ── Phase 4: MFA ── -->
-                <div class="md:grid md:grid-cols-2 md:gap-12 mb-14 reveal">
-                    <div class="hidden md:flex items-center justify-end pr-16">
-                        <div class="space-y-1 text-right">
-                            <p class="text-purple-300 font-mono font-bold text-lg">2024</p>
-                            <p class="text-zinc-500 text-sm">Zero-to-production solo</p>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="glass rounded-2xl p-6 space-y-3 timeline-item-right relative">
-                            <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[54px] hidden md:flex items-center flex-row-reverse">
-                                <div class="timeline-connector"></div>
-                                <div class="timeline-dot"></div>
-                            </div>
-                            <div class="flex items-center gap-3 md:hidden mb-2">
-                                <div class="timeline-dot"></div>
-                                <span class="text-xs text-purple-400 font-mono font-semibold">2024</span>
-                            </div>
-                            <p class="text-xs text-purple-400 font-mono font-semibold uppercase tracking-wider">Security Feature</p>
-                            <h3 class="text-white font-bold text-base">MFA — Architecture, Build &amp; Global Rollout</h3>
-                            <p class="text-zinc-500 text-xs">Single-handedly designed and shipped</p>
-                            <p class="text-zinc-400 text-sm leading-relaxed">
-                                Sole engineer responsible for the complete MFA implementation — from threat modelling and architecture through development, testing, and production deployment across all client environments worldwide.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-1">
-                                <span class="tag-chip">MFA</span>
-                                <span class="tag-chip">Security Architecture</span>
-                                <span class="tag-chip">Full Lifecycle</span>
-                                <span class="tag-chip">Multi-client Rollout</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ── Phase 5: TISO + BCP + SME ── -->
-                <div class="md:grid md:grid-cols-2 md:gap-12 mb-14 reveal">
-                    <div class="relative mb-8 md:mb-0">
-                        <div class="glass rounded-2xl p-6 space-y-3 timeline-item-left relative">
-                            <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[54px] hidden md:flex items-center">
-                                <div class="timeline-connector"></div>
-                                <div class="timeline-dot"></div>
-                            </div>
-                            <div class="flex items-center gap-3 md:hidden mb-2">
-                                <div class="timeline-dot"></div>
-                                <span class="text-xs text-purple-400 font-mono font-semibold">2025</span>
-                            </div>
-                            <p class="text-xs text-purple-400 font-mono font-semibold uppercase tracking-wider">Security &amp; Governance Leadership</p>
-                            <h3 class="text-white font-bold text-base">TISO · BCP/BIA Lead · MFA Subject Matter Expert</h3>
-                            <p class="text-zinc-500 text-xs">Self-initiated · Appointed post-incident · Division security team</p>
-                            <p class="text-zinc-400 text-sm leading-relaxed">
-                                Proactively identified the division's security gap before it was a mandate — and built the response from scratch. Designed and delivered a vulnerability management framework combining tooling, documented workflows, and clear team-level accountability structures. Now being adopted across the company. Not assigned. Self-initiated.
-                            </p>
-                            <p class="text-zinc-400 text-sm leading-relaxed mt-2">
-                                Appointed Team Information Security Officer following a critical security incident. Stayed on-site for 48 hours with the response team — found the root cause, shipped the fix, and deployed to client environments within the weekend. Led BCP and BIA governance across multiple products and served as the recognised MFA Subject Matter Expert.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-1">
-                                <span class="tag-chip">TISO</span>
-                                <span class="tag-chip">Security Framework</span>
-                                <span class="tag-chip">Incident Response</span>
-                                <span class="tag-chip">BCP / BIA</span>
-                                <span class="tag-chip">MFA SME</span>
-                                <span class="tag-chip">Vulnerability Management</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hidden md:flex items-center pl-16">
-                        <div class="space-y-1">
-                            <p class="text-purple-300 font-mono font-bold text-lg">2025</p>
-                            <p class="text-zinc-500 text-sm">Security leadership + expertise</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ── Phase 6: Strategic / Current ── -->
-                <div class="md:grid md:grid-cols-2 md:gap-12 reveal">
-                    <div class="hidden md:flex items-center justify-end pr-16">
-                        <div class="space-y-1 text-right">
-                            <p class="text-purple-300 font-mono font-bold text-lg">2026</p>
-                            <p class="text-zinc-500 text-sm">Current chapter</p>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="glass rounded-2xl p-6 space-y-3 timeline-item-right relative" style="border-color: rgba(192,132,252,0.35);">
-                            <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-[54px] hidden md:flex items-center flex-row-reverse">
-                                <div class="timeline-connector"></div>
-                                <div class="timeline-dot" style="border-color:#f0abfc; box-shadow: 0 0 18px rgba(240,171,252,0.75);"></div>
-                            </div>
-                            <div class="flex items-center gap-3 md:hidden mb-2">
-                                <div class="timeline-dot" style="border-color:#f0abfc; box-shadow: 0 0 14px rgba(240,171,252,0.7);"></div>
-                                <span class="text-xs text-purple-400 font-mono font-semibold">Now</span>
-                            </div>
-                            <div class="flex items-center gap-2 flex-wrap">
-                                <p class="text-xs text-purple-400 font-mono font-semibold uppercase tracking-wider">Strategic Engineering &amp; Security</p>
-                                <span class="text-xs bg-green-500/15 text-green-400 border border-green-500/30 rounded-full px-2 py-0.5 font-semibold">Current</span>
-                            </div>
-                            <h3 class="text-white font-bold text-base">Solutions Architect · Division Security Operative · AI Enablement Lead</h3>
-                            <p class="text-zinc-500 text-xs">Cross-divisional · Strategic FX · AI Enablement &amp; Governance</p>
-                            <p class="text-zinc-400 text-sm leading-relaxed">
-                                Operating at the intersection of engineering, security, and AI adoption. Leading how in-house AI models are evaluated, governed, and rolled out to engineering teams — building the consumption workflows and accountability structures that make AI usable at scale across divisions.
-                            </p>
-                            <p class="text-zinc-400 text-sm leading-relaxed mt-2">
-                                Continuing to architect and deliver solutions for high-stakes client environments while stabilising a critical production environment for a flagship client.
-                            </p>
-                            <div class="flex flex-wrap gap-2 pt-1">
-                                <span class="tag-chip">AI Enablement</span>
-                                <span class="tag-chip">AI Governance</span>
-                                <span class="tag-chip">Solutions Architecture</span>
-                                <span class="tag-chip">Division Security</span>
-                                <span class="tag-chip">Workflow Design</span>
-                                <span class="tag-chip">Client Stabilization</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================== TECH STACK ===================== -->
-    <section id="stack" class="py-28 relative">
-        <div class="orb w-72 h-72 bg-purple-900/20 top-0 right-1/4"></div>
-        <div class="max-w-6xl mx-auto px-6 lg:px-10">
-            <div class="text-center mb-16 reveal">
-                <div class="section-label">What I Work With</div>
-                <h2 class="text-4xl md:text-5xl font-bold text-white mt-3">Tech Stack</h2>
-            </div>
-
-            <div class="space-y-5">
-
-                <!-- Row 1: Languages + Frameworks -->
-                <div class="grid md:grid-cols-2 gap-5">
-
-                    <div class="glass rounded-2xl p-6 reveal">
-                        <div class="flex items-center gap-2 mb-4">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                            <p class="text-xs font-semibold text-purple-400 uppercase tracking-widest">Languages</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-chip">
-                                <img src="app/static/img/tech_stack/python.png" class="w-4 h-4 object-contain" alt="Python logo" loading="lazy">
-                                Python
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M6 8l4 4-4 4M12 16h6"/></svg>
-                                Bash / Shell
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm16.525 13.707c-.131-.821-.666-1.511-2.252-2.155-.552-.259-1.165-.438-1.349-.854-.068-.248-.078-.382-.034-.529.113-.484.687-.629 1.137-.495.293.09.563.315.732.676.775-.507.775-.507 1.316-.844-.203-.314-.304-.451-.439-.586-.473-.528-1.103-.798-2.126-.775l-.528.067c-.507.124-.991.395-1.283.754-.855.968-.608 2.655.427 3.354 1.023.765 2.521.933 2.712 1.653.18.878-.652 1.159-1.475 1.058-.607-.136-.945-.439-1.316-1.002l-1.372.788c.157.359.337.517.607.832 1.305 1.316 4.568 1.249 5.153-.754.021-.067.18-.528.132-1.209l.003.036zm-7.847-6.042H9.734v5.666c0 1.201.007 2.309-.13 2.634-.22.564-.836.474-1.107.378a1.5 1.5 0 01-.743-.927l-1.35.833c.259.608.639 1.095 1.154 1.384.678.378 1.589.526 2.579.3.724-.174 1.35-.634 1.678-1.256.45-.837.428-1.927.428-3.089V10.665z"/></svg>
-                                JavaScript
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
-                                SQL
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-                                Java
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                                Groovy
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="glass rounded-2xl p-6 reveal">
-                        <div class="flex items-center gap-2 mb-4">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                            <p class="text-xs font-semibold text-purple-400 uppercase tracking-widest">Frameworks &amp; Web</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-chip">
-                                <img src="app/static/img/tech_stack/flask.png" class="w-4 h-4 object-contain" alt="Flask logo" loading="lazy">
-                                Flask
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-                                REST APIs
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="3" cy="6" r="2"/><circle cx="21" cy="6" r="2"/><circle cx="3" cy="18" r="2"/><circle cx="21" cy="18" r="2"/><path d="M5 6h5M14 6h5M5 18h5M14 18h5M12 9v-1M12 16v-1"/></svg>
-                                Microservices
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12h8M12 8v8"/></svg>
-                                Spring Boot
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3V3zm16.525 13.707"/><path d="M8 12h8M8 8h8M8 16h5"/></svg>
-                                BackboneJS
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                Guice
-                            </span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Row 2: DevOps + Security -->
-                <div class="grid md:grid-cols-2 gap-5">
-
-                    <div class="glass rounded-2xl p-6 reveal">
-                        <div class="flex items-center gap-2 mb-4">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
-                            <p class="text-xs font-semibold text-purple-400 uppercase tracking-widest">DevOps &amp; Automation</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-chip">
-                                <img src="app/static/img/tech_stack/docker.png" class="w-4 h-4 object-contain" alt="Docker logo" loading="lazy">
-                                Docker
-                            </span>
-                            <span class="skill-chip">
-                                <img src="app/static/img/tech_stack/jenkins.png" class="w-4 h-4 object-contain" alt="Jenkins logo" loading="lazy">
-                                Jenkins
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                                CI / CD
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.546 10.93L13.067.452a1.55 1.55 0 00-2.188 0L8.708 2.627l2.76 2.76a1.838 1.838 0 012.327 2.341l2.658 2.66a1.838 1.838 0 11-1.1 1.73c-.48 0-.92-.19-1.24-.5l-2.48-2.48v6.523a1.835 1.835 0 11-1.505-.018V9.01a1.84 1.84 0 01-.996-2.44L6.373 3.8.452 9.718a1.55 1.55 0 000 2.187l10.478 10.478a1.55 1.55 0 002.188 0l10.428-10.428a1.55 1.55 0 000-2.024z"/></svg>
-                                Git
-                            </span>
-                            <span class="skill-chip">
-                                <img src="app/static/img/tech_stack/selenium.png" class="w-4 h-4 object-contain" alt="Selenium logo" loading="lazy">
-                                Test Automation
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-                                Performance Testing
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/></svg>
-                                Robot Framework
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                                Prometheus
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 9h12M6 12h8"/></svg>
-                                Grafana
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
-                                Nexus
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="glass rounded-2xl p-6 reveal">
-                        <div class="flex items-center gap-2 mb-4">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            <p class="text-xs font-semibold text-purple-400 uppercase tracking-widest">Security &amp; Compliance</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                                MFA Implementation
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                                Incident Response
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-                                Security Posture
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                                BIA / BCP
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
-                                TISO Operations
-                            </span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Row 3: Cloud + Data & ML -->
-                <div class="grid md:grid-cols-2 gap-5">
-
-                    <div class="glass rounded-2xl p-6 reveal">
-                        <div class="flex items-center gap-2 mb-4">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
-                            <p class="text-xs font-semibold text-purple-400 uppercase tracking-widest">Cloud &amp; Platforms</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color:#a78bfa"><path d="M22.379 12.26c-.133-.46-.404-.87-.782-1.17l-8.4-6.69a1.8 1.8 0 00-2.194 0L2.6 11.09a1.8 1.8 0 00-.394 2.52 1.8 1.8 0 001.188.72L4 14.38v4.77A1.85 1.85 0 005.85 21h12.3A1.85 1.85 0 0020 19.15V14.38l.606-.05a1.8 1.8 0 001.773-1.8v-.27z"/></svg>
-                                Azure
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M6 8l4 4-4 4M12 16h6"/></svg>
-                                Linux
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
-                                Heroku
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/><path d="M13 10V6"/></svg>
-                                AWS
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="glass rounded-2xl p-6 reveal">
-                        <div class="flex items-center gap-2 mb-4">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a9 9 0 019 9c0 3.87-2.44 7.17-6 8.48V21H9v-1.52C5.44 18.17 3 14.87 3 11a9 9 0 019-9z"/><path d="M9 21h6"/></svg>
-                            <p class="text-xs font-semibold text-purple-400 uppercase tracking-widest">Data &amp; ML</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-chip">
-                                <img src="app/static/img/tech_stack/tableau.png" class="w-4 h-4 object-contain" alt="Tableau logo" loading="lazy">
-                                Tableau
-                            </span>
-                            <span class="skill-chip">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
-                                MindsDB
-                            </span>
-                            <span class="skill-chip">
-                                <img src="app/static/img/tech_stack/tensorflow.png" class="w-4 h-4 object-contain" alt="TensorFlow logo" loading="lazy">
-                                Machine Learning
-                            </span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Row 4: What I Actually Do Best — full width -->
-                <div class="glass rounded-2xl p-6 reveal" style="background: rgba(139,92,246,0.07); border-color: rgba(139,92,246,0.25);">
-                    <div class="flex items-center gap-2 mb-4">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <p class="text-xs font-semibold text-purple-400 uppercase tracking-widest">What I Actually Do Best</p>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-chip" style="border-color: rgba(139,92,246,0.35); background: rgba(139,92,246,0.15);">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h4"/></svg>
-                            Project Management
-                        </span>
-                        <span class="skill-chip" style="border-color: rgba(139,92,246,0.35); background: rgba(139,92,246,0.15);">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            Ownership &amp; Delivery
-                        </span>
-                        <span class="skill-chip" style="border-color: rgba(139,92,246,0.35); background: rgba(139,92,246,0.15);">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-                            Client Engagement
-                        </span>
-                        <span class="skill-chip" style="border-color: rgba(139,92,246,0.35); background: rgba(139,92,246,0.15);">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
-                            Cross-Team Collaboration
-                        </span>
-                        <span class="skill-chip" style="border-color: rgba(139,92,246,0.35); background: rgba(139,92,246,0.15);">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
-                            Adapts to Anything
-                        </span>
-                    </div>
-                    <p class="text-zinc-600 text-xs mt-4 italic">I don't associate with any single role — I associate with getting things done.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================== PROJECTS ===================== -->
-    <section id="projects" class="py-28 relative">
-        <div class="orb w-96 h-96 bg-violet-900/20 top-0 -left-20"></div>
-        <div class="max-w-6xl mx-auto px-6 lg:px-10">
-            <div class="text-center mb-16 reveal">
-                <div class="section-label">Things I've Built</div>
-                <h2 class="text-4xl md:text-5xl font-bold text-white mt-3">Projects</h2>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <!-- Financial Intelligence Pipeline -->
-                <div class="glass project-card rounded-2xl overflow-hidden reveal group">
-                    <div class="relative h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(109,40,217,0.3) 0%, rgba(192,132,252,0.15) 100%);">
-                        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(192,132,252,0.7)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                        <div class="absolute inset-0 project-overlay"></div>
-                        <span class="absolute top-3 left-3 text-xs bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full px-3 py-1 font-semibold">🏆 1st Place · ION Hackathon 2023</span>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <h3 class="font-bold text-lg text-white">Financial Intelligence Pipeline</h3>
-                        <p class="text-zinc-500 text-xs font-medium">ION Internal Hackathon 2023 — 1st Place</p>
-                        <p class="text-zinc-400 text-sm leading-relaxed">Built an AI-powered pipeline that collected annual performance filings from stock exchanges, extracted structured financial data using LLMs, and fed it into internal reporting workflows — reducing a manual process from hours to minutes.</p>
-                        <div class="flex flex-wrap gap-2 pt-1">
-                            <span class="tag-chip">Python</span>
-                            <span class="tag-chip">LLMs</span>
-                            <span class="tag-chip">Data Extraction</span>
-                            <span class="tag-chip">NLP</span>
-                            <span class="tag-chip" style="background:rgba(99,102,241,0.15); border-color:rgba(99,102,241,0.3); color:#a5b4fc;">Internal Project</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Division Security Framework -->
-                <div class="glass project-card rounded-2xl overflow-hidden reveal reveal-delay-1 group">
-                    <div class="relative h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(109,40,217,0.25) 100%);">
-                        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(110,231,183,0.65)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-                        <div class="absolute inset-0 project-overlay"></div>
-                        <span class="absolute top-3 left-3 text-xs bg-green-500/15 text-green-400 border border-green-500/30 rounded-full px-3 py-1 font-semibold">Company-wide Adoption</span>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <h3 class="font-bold text-lg text-white">Division Security Framework</h3>
-                        <p class="text-zinc-500 text-xs font-medium">Self-initiated · Now adopted company-wide</p>
-                        <p class="text-zinc-400 text-sm leading-relaxed">Identified the division's vulnerability management gap before it became a mandate. Built the full response — a framework combining BlackDuck tooling, documented workflows, and clear accountability structures for every team.</p>
-                        <div class="flex flex-wrap gap-2 pt-1">
-                            <span class="tag-chip">Security</span>
-                            <span class="tag-chip">DevSecOps</span>
-                            <span class="tag-chip">Vulnerability Management</span>
-                            <span class="tag-chip">Process Design</span>
-                            <span class="tag-chip" style="background:rgba(99,102,241,0.15); border-color:rgba(99,102,241,0.3); color:#a5b4fc;">Internal Project</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Coming Soon -->
-                <div class="rounded-2xl overflow-hidden reveal reveal-delay-2" style="border: 1.5px dashed rgba(139,92,246,0.2); background: rgba(139,92,246,0.03);">
-                    <div class="h-48 flex items-center justify-center">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(139,92,246,0.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <h3 class="font-bold text-lg text-zinc-600">Coming Soon</h3>
-                        <p class="text-zinc-700 text-sm leading-relaxed">Currently building — check back shortly.</p>
-                        <div class="flex flex-wrap gap-2 pt-1">
-                            <span class="tag-chip" style="opacity:0.5;">In Progress</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sign-To-Text -->
-                <div class="glass project-card rounded-2xl overflow-hidden reveal group">
-                    <div class="relative overflow-hidden h-48">
-                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="app/static/img/projects/signdetection.jpg" alt="Sign-To-Text — Azure sign language to text classifier by Adithya Narayan">
-                        <div class="absolute inset-0 project-overlay"></div>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <h3 class="font-bold text-lg text-white">Sign-To-Text</h3>
-                        <p class="text-zinc-400 text-sm leading-relaxed">Uses Azure Custom Vision to predict alphabets represented by hand signs in real time.</p>
-                        <div class="flex flex-wrap gap-2 pt-1">
-                            <a href="https://github.com/NarayanAdithya/azure-image-classifier" target="_blank" rel="noopener" class="tag-chip">GitHub</a>
-                            <a href="https://signpredictor.azurewebsites.net/" target="_blank" rel="noopener" class="tag-chip">Website</a>
-                            <a href="https://devpost.com/software/sign-to-text-aosh02" target="_blank" rel="noopener" class="tag-chip">DevPost</a>
-                            <a href="https://youtu.be/0V5YnwqumAI" target="_blank" rel="noopener" class="tag-chip">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DankBot -->
-                <div class="glass project-card rounded-2xl overflow-hidden reveal reveal-delay-1 group">
-                    <div class="relative overflow-hidden h-48">
-                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="app/static/img/projects/dankbot.png" alt="DankBot — PyPI Discord automation package by Adithya Narayan">
-                        <div class="absolute inset-0 project-overlay"></div>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <h3 class="font-bold text-lg text-white">DankBot</h3>
-                        <p class="text-zinc-400 text-sm leading-relaxed">A PyPI-published Python package to automate Discord's DankMemer Bot for maximum grinding.</p>
-                        <div class="flex flex-wrap gap-2 pt-1">
-                            <a href="https://github.com/NarayanAdithya/Dankbot" target="_blank" rel="noopener" class="tag-chip">GitHub</a>
-                            <a href="https://pypi.org/project/DiscordDankBot/" target="_blank" rel="noopener" class="tag-chip">PyPI</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gantt-Chart-Maker -->
-                <div class="glass project-card rounded-2xl overflow-hidden reveal reveal-delay-2 group">
-                    <div class="relative overflow-hidden h-48">
-                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" src="app/static/img/projects/gantt.png" alt="Gantt Chart Maker — Live Plotly Gantt chart generator by Adithya Narayan">
-                        <div class="absolute inset-0 project-overlay"></div>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <h3 class="font-bold text-lg text-white">Gantt Chart Maker</h3>
-                        <p class="text-zinc-400 text-sm leading-relaxed">Live-rendered Plotly Gantt charts via Plotly.js, deployed on PythonAnywhere.</p>
-                        <div class="flex flex-wrap gap-2 pt-1">
-                            <a href="https://github.com/NarayanAdithya/Gantt-Chart-Maker" target="_blank" rel="noopener" class="tag-chip">GitHub</a>
-                            <a href="https://adithyanarayan.pythonanywhere.com/" target="_blank" rel="noopener" class="tag-chip">Website</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================== EXPERIMENTS ===================== -->
-    <section id="demos" class="py-28 relative">
-        <div class="orb w-80 h-80 bg-purple-900/20 top-10 right-10"></div>
-        <div class="max-w-6xl mx-auto px-6 lg:px-10">
-            <div class="text-center mb-6 reveal">
-                <div class="section-label">Technical Experiments</div>
-                <h2 class="text-4xl md:text-5xl font-bold text-white mt-3">Experiments</h2>
-            </div>
-            <p class="text-center text-zinc-500 text-sm leading-relaxed max-w-xl mx-auto mb-14 reveal">
-                A few technical experiments from the past. Not everything worked — but everything taught something.
-            </p>
-
-            <div class="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
-
-                <a href="https://youtu.be/0V5YnwqumAI" target="_blank" rel="noopener"
-                    class="glass rounded-2xl p-5 flex flex-col gap-3 hover:border-purple-500/40 transition-all group reveal">
-                    <div class="flex items-center gap-3">
-                        <span class="text-2xl">🤟</span>
-                        <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">Azure · Computer Vision</span>
-                    </div>
-                    <div>
-                        <h3 class="text-white font-semibold text-sm group-hover:text-purple-300 transition-colors">Azure Sign Detection Demo</h3>
-                        <p class="text-zinc-500 text-xs mt-1 leading-relaxed">Built a sign language-to-text translator on Azure Custom Vision. One of those projects that actually felt meaningful.</p>
-                    </div>
-                    <span class="text-purple-500 text-xs group-hover:text-purple-300 transition-colors mt-auto">Watch ↗</span>
-                </a>
-
-                <a href="https://youtu.be/O5PUvh863sY" target="_blank" rel="noopener"
-                    class="glass rounded-2xl p-5 flex flex-col gap-3 hover:border-purple-500/40 transition-all group reveal reveal-delay-1">
-                    <div class="flex items-center gap-3">
-                        <span class="text-2xl">🔍</span>
-                        <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">Hackathon · Dyte</span>
-                    </div>
-                    <div>
-                        <h3 class="text-white font-semibold text-sm group-hover:text-purple-300 transition-colors">DyteScan — Hiring Challenge</h3>
-                        <p class="text-zinc-500 text-xs mt-1 leading-relaxed">Built a tool for Dyte's hiring round. Got rejected, kept the demo. No regrets.</p>
-                    </div>
-                    <span class="text-purple-500 text-xs group-hover:text-purple-300 transition-colors mt-auto">Watch ↗</span>
-                </a>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================== CONTACT ===================== -->
-    <section id="contact" class="py-28 relative">
-        <div class="orb w-96 h-96 bg-purple-800/25 bottom-0 right-1/3"></div>
-        <div class="max-w-3xl mx-auto px-6 lg:px-10 text-center reveal">
-            <div class="section-label">Say Hello</div>
-            <h2 class="text-4xl md:text-5xl font-bold text-white mt-3 mb-6">Let's Connect</h2>
-            <p class="text-zinc-400 text-base leading-relaxed mb-12 max-w-xl mx-auto">
-                Whether you have a project in mind, a question, or just want to say hi — my inbox is always open.
-            </p>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
-                <a href="https://github.com/NarayanAdithya" target="_blank" rel="noopener"
-                    class="glass rounded-2xl p-6 flex flex-col items-center gap-3 hover:border-purple-500/40 transition-all group reveal">
-                    <div class="w-12 h-12 rounded-full bg-purple-900/50 flex items-center justify-center group-hover:bg-purple-700/50 transition-colors">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-white text-sm">GitHub</p>
-                        <p class="text-zinc-500 text-xs">NarayanAdithya</p>
-                    </div>
-                </a>
-
-                <a href="https://www.linkedin.com/in/adithya-narayan-3747081a3/" target="_blank" rel="noopener"
-                    class="glass rounded-2xl p-6 flex flex-col items-center gap-3 hover:border-purple-500/40 transition-all group reveal reveal-delay-1">
-                    <div class="w-12 h-12 rounded-full bg-purple-900/50 flex items-center justify-center group-hover:bg-purple-700/50 transition-colors">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-white text-sm">LinkedIn</p>
-                        <p class="text-zinc-500 text-xs">adithya-narayan</p>
-                    </div>
-                </a>
-
-                <a href="mailto:adithyanarayan1234@gmail.com"
-                    class="glass rounded-2xl p-6 flex flex-col items-center gap-3 hover:border-purple-500/40 transition-all group reveal reveal-delay-2">
-                    <div class="w-12 h-12 rounded-full bg-purple-900/50 flex items-center justify-center group-hover:bg-purple-700/50 transition-colors">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-white text-sm">Email</p>
-                        <p class="text-zinc-500 text-xs">adithyanarayan1234</p>
-                    </div>
-                </a>
-            </div>
-
-            <a href="mailto:adithyanarayan1234@gmail.com"
-                class="btn-primary inline-flex items-center gap-2 text-white font-semibold px-8 py-3.5 rounded-full text-sm">
-                Send Me a Message
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-        </div>
-    </section>
-
-    <!-- ===================== FOOTER ===================== -->
-    <footer class="border-t border-white/5 py-8">
-        <div class="max-w-6xl mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-zinc-600 text-sm">
-            <span><span class="gradient-text font-semibold">adithya.narayan</span></span>
-            <span>Built with Flask &amp; migrated to GitHub Pages</span>
-            <div class="flex gap-5">
-                <a href="https://github.com/NarayanAdithya" target="_blank" rel="noopener" class="hover:text-white transition-colors">GitHub</a>
-                <a href="https://www.linkedin.com/in/adithya-narayan-3747081a3/" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a>
-                <a href="mailto:adithyanarayan1234@gmail.com" class="hover:text-white transition-colors">Mail</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ===================== SCRIPTS ===================== -->
-    <script>
-        // Mobile menu toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const bars = menuBtn.querySelectorAll('span');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-            const isOpen = mobileMenu.classList.contains('open');
-            bars[0].style.transform = isOpen ? 'translateY(8px) rotate(45deg)' : '';
-            bars[1].style.opacity = isOpen ? '0' : '1';
-            bars[2].style.transform = isOpen ? 'translateY(-8px) rotate(-45deg)' : '';
-        });
-
-        // Close mobile menu on link click
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                bars.forEach(b => { b.style.transform = ''; b.style.opacity = '1'; });
-            });
-        });
-
-        // Scroll reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Active nav highlight on scroll
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                if (window.scrollY >= section.offsetTop - 100) current = section.id;
-            });
-            navLinks.forEach(link => {
-                link.style.color = link.getAttribute('href') === '#' + current ? '#a78bfa' : '';
-            });
-        }, { passive: true });
-    </script>
-
-</body>
-</html>
+  }
+
+  function loop(t) { draw(t); requestAnimationFrame(loop); }
+
+  size();
+  window.addEventListener('resize', function () { size(); if (reduce) draw(0); });
+  if (reduce) { draw(0); }
+  else {
+    hero.addEventListener('pointermove', function (e) {
+      var r = hero.getBoundingClientRect(); tx = e.clientX - r.left; ty = e.clientY - r.top;
+    });
+    hero.addEventListener('pointerleave', function () { tx = -9999; ty = -9999; });
+    requestAnimationFrame(loop);
+  }
+
+  /* Copy email */
+  var btn = document.getElementById('copy');
+  var email = document.getElementById('email');
+  var status = document.getElementById('copy-status');
+  function selectText() {
+    var range = document.createRange(); range.selectNodeContents(email);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+  }
+  btn.addEventListener('click', function () {
+    var text = email.textContent.trim();
+    try {
+      navigator.clipboard.writeText(text).then(function () { status.textContent = 'Copied'; },
+        function () { selectText(); status.textContent = 'Selected, press Ctrl+C'; });
+    } catch (e) { selectText(); status.textContent = 'Selected, press Ctrl+C'; }
+  });
+})();
+</script>
+
+</body></html>
