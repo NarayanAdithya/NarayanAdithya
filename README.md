@@ -1,27 +1,14 @@
-<div align='center'>
+# Hi, I'm Adithya 👋
 
- [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Hola%2C+Me+Llamo+Adithya;Flask+Developer;DevOps+%7C+Backend+%7C+Open+Inno;Kivy+%7C+Selenium+%7C+Tensorflow;Open+for+Collabs)](https://git.io/typing-svg)
-  
-</div>
+Backend engineer and team lead at **ION Trading**, Hyderabad. I build, test and secure financial trading software: backend services, CI and test automation, performance and security. I'm currently leading a team of four on a platform migration in Java.
 
+## Some things I've owned end to end
 
+- **Test automation** for a newly acquired trading platform: ~900 tests, and a full regression down from months to 4–6 hours
+- **Load testing** from nothing to a validated 200+ concurrent users, with Docker Swarm, Prometheus and Grafana
+- **MFA rollout** on Azure AD B2C across 11 clients and tens of thousands of users, with 0 rollbacks
+- **Security incident response**, followed by the division-wide vulnerability workflows it led to
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=narayanadithya&label=Profile%20views&color=0e75b6&style=flat" alt="narayanadithya" /> </p>
+**Stack:** Java · Spring Boot · Hibernate · Node.js · Python · Robot Framework · Selenium · Jenkins · Docker · Prometheus · Grafana · Azure AD B2C · FIX
 
-🔭 I’m currently working on **microservice architecture, docker, jenkins and other devops stuff**
-
-🌱 I’m currently learning **DevOps**
-
-👯 I’m looking to collaborate on **projects, hackathons etc.**
-
-🤝 I’m looking for help with **DSA**
-
-💬 Ask me about **Flask, Python , Docker etc.**
-
-📫 Mail me on **narayanadithya1234@gmail.com**
-
-⚡ Fun fact **I am the most stressed person you will meet**
-
-😃 Check out my portfolio website [here](https://adithyanarayan1234.herokuapp.com/) and this is the older version [here](https://narayanadithya.herokuapp.com/) 
-
-
+🌐 [Portfolio](https://narayanadithya.github.io/NarayanAdithya/) · 💼 [LinkedIn](https://www.linkedin.com/in/adithya-narayan-3747081a3/) · 📫 [adithyanarayan1234@gmail.com](mailto:adithyanarayan1234@gmail.com)

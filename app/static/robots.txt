@@ -1,8 +1,0 @@
-User-Agent: Googlebot
-Disallow: /static/img
-Disallow: /static/files/adithya.pdf
-
-User-agent: *
-Disallow:
-
-sitemap: https://adithya-narayan.herokuapp.com/sitemap.xml
